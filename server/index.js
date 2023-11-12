@@ -19,7 +19,7 @@ app.listen (app.get('port'), () => { // indica que va a estar a la escucha usand
 
 app.use(morgan('dev')); // indica que usamos morgan
 app.use(express.json()); // indica que usamos express
-app.use(cors({origin:'*'})); // indica que usamos
+app.use(cors({origin:'*'})); // indica que usamos el cors con origen todos
 
 
 
