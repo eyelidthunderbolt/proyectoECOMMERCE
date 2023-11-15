@@ -12,7 +12,7 @@ export class ListaProductosComponent {
 
   constructor(public productoService: ProductosService) {}
 
-  recogerProductos() {
+  recogerProductos() { //metodo para obtener el listado de productos de la base de datos
     return this.productoService.mostrarProductos()
       .subscribe(res => {
         this.productos = res as Producto[];
@@ -20,7 +20,7 @@ export class ListaProductosComponent {
       });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { // para que lo cargue nada mas cargar el modulo
     this.recogerProductos();
   }
 }
