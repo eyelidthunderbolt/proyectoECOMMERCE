@@ -1,1 +1,101 @@
-<p>central works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>central</title>
+    <style>
+
+        img {
+            width: 100px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .boton-ecommerce {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-ecommerce:hover {
+            background-color: #2980b9;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Contenedor {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Contenedor">
+        <table>
+            <!--COLUMNA 01-->
+            <tr>
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p>Ejemplo Camiseta 01</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 1-0-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 02</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 1-1-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 03</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 1-2-->
+            </tr>
+            <!--COLUMNA 02-->
+            <tr>
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 11</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 2-0-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 22</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 2-1-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 33</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 2-1-->
+            </tr>
+            <!--COLUMNA 03-->
+            <tr>
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 21</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 3-1-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 22</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 3-2-->
+                <th><img src="https://live.staticflickr.com/7260/7543795362_4265791e72_n.jpg"><p >Ejemplo Camiseta 23</p><p class="precio">12,50€</p><button class="boton-ecommerce">Añadir a la cesta</button></th> <!-- FILA 3-2-->
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
