@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+  }
+
+  .navbar ul {
+    list-style: none;
+    background-color: rgb(241, 161, 124);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar a, .navbar input {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .navbar input {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    margin-left: 10px;
+    height: 35px
+  }
+
+  .navbar a:hover {
+    background-color: rgb(177, 128, 106);
+  }
+
+  .navbar li {
+    display: inline-block;
+  }
