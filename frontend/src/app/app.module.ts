@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeadComponent } from './head/head.component';
-import { CentralComponent } from './central/central.component';
+import { HeadComponent } from './components/head/head.component';
+import { CentralComponent } from './components/central/central.component';
 import { LatIzqComponent } from './components/lat-izq/lat-izq.component';
 import { LatDerComponent } from './components/lat-der/lat-der.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
