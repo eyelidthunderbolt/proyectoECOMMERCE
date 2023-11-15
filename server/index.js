@@ -26,8 +26,8 @@ app.use(cors({origin:'*'})); // indica que usamos el cors con origen todos
 
 // Routes
 
-app.use(require('./routes/empleados.routes.js')) // con esto usamos la ruta que acabamos de crear
-app.use('/api/empleados', require('./routes/empleados.routes.js')) // usa empleados y requiere las rutas
+app.use(require('./routes/producto.routes.js')) // con esto usamos la ruta que acabamos de crear
+app.use('/api/productos', require('./routes/producto.routes.js')) // usa empleados y requiere las rutas
 // Inicializar el servidor
 
 

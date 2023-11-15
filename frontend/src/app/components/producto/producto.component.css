@@ -1,0 +1,43 @@
+.producto {
+    width: 200px;
+    margin: 12px;
+}
+
+img {
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+}
+
+p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.precio {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.boton-ecommerce {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-ecommerce:hover {
+    background-color: #2980b9;
+}

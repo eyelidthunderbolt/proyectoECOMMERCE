@@ -24,16 +24,17 @@ controladorProducto.mostrarProducto = async (req,res) => {
 controladorProducto.editarProducto = async (req,res) => {
     const { id } = req.params;
     const productoAEditar = {
-        
+
         //Definir campos del producto
     };
 
     await productosModels.findByIdAndUpdate(id,{ $set: productoAEditar }, {new:true});
     res.json('Producto Actualizado');
-
-    controladorProducto.borrarProducto = async (req,res) => {
-        await productos.findByIdAndDelete(req.params.id);
-        res.json('Producto Eliminado')
-    }
 }
+
+controladorProducto.borrarProducto = async (req,res) => {
+    await productos.findByIdAndDelete(req.params.id);
+    res.json('Producto Eliminado')
+}
+
 module.exports = controladorProducto;

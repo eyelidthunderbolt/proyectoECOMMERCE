@@ -1,0 +1,6 @@
+.caja-productos {
+    width: 672px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
