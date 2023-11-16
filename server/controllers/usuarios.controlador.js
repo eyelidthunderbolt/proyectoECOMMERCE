@@ -13,4 +13,9 @@ controladorUsuario.mostrarUsuario = async (req, res, next) => {
     res.json(buscarUsuario)
 }
 
+controladorUsuario.mostrarUsuarios = async (req,res) => {
+    const leerUsuarios = await usuariosModels.find();
+    res.json(leerUsuarios);
+}
+
 module.exports = controladorUsuario;
