@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeadComponent {
 
+  login(usuario : string, password : string){
+
+
+  }
+
 }
