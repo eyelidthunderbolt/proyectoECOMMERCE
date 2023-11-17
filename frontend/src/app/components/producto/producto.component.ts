@@ -21,4 +21,10 @@ export class ProductoComponent {
     stock: 0,
   }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.producto.precio = this.producto.precio / 100;
+  }
+
 }
