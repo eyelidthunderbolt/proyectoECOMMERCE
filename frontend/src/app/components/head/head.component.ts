@@ -28,14 +28,15 @@ export class HeadComponent {
 
         const usuariosFiltrados = usuarios.filter((usuario: Usuario) => usuario.email === email && usuario.password === password);
         const logeado = usuariosFiltrados.length > 0;
-        if(logeado){
 
+        if(logeado){
           this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].email;
         }
 
         else{
-          this.mensajeBienvenida ="Usuario no encontrado"
+          this.mensajeBienvenida ="Email o contraseña incorrectos"
         }
+
 
 
       });
