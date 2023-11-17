@@ -20,6 +20,7 @@ h1 {
   }
 
   .navbar input {
+    color: black;
     background-color: white;
     border: 1px solid #ccc;
     padding: 5px;

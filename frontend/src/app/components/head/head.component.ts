@@ -11,29 +11,33 @@ import { Usuario } from '../../models/usuario';
 })
 export class HeadComponent {
 
-  usuario : Usuario;
-  usuarios : Usuario[]
+  // usuario : Usuario;
+  // usuarios : Usuario[]
+  mensajeBienvenida : string ="";
 
   constructor(public usuariosService: UsuariosService){
 
-    this.usuario = new Usuario
-    this.usuarios = [];
+    // this.usuario = new Usuario
+    // this.usuarios = [];
   }
 
-  recogerUsuarios() { //metodo para obtener el listado de usuarios de la base de datos
-    return this.usuariosService.mostrarUsuarios()
+  login(email : string, password : string){
+    this.usuariosService.mostrarUsuarios()
       .subscribe(res => {
-        this.usuarios = res as Usuario[];
-        console.log(res)
+        const usuarios = res as Usuario[];
+
+        const usuariosFiltrados = usuarios.filter((usuario: Usuario) => usuario.email === email && usuario.password === password);
+        const logeado = usuariosFiltrados.length > 0;
+        if(logeado){
+
+          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].email;
+        }
+
+        else{
+          this.mensajeBienvenida ="Usuario no encontrado"
+        }
+
+
       });
   }
-
-  login(usuario : string, password : string){
-    let listaUsuarios : Usuario[];
-
-    //listaUsuarios = this.recogerUsuarios();
-
-
-  }
-
 }
