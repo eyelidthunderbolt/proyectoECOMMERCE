@@ -24,9 +24,9 @@ h1 {
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
-    width: 150px;
+    width: 100px;
     margin-left: 10px;
-    height: 35px
+    height: 20px
   }
 
   .navbar a:hover {
@@ -53,10 +53,12 @@ h1 {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 15px;
 
   }
 
   .navbar button:hover{
 
     background-color: #2980b9;
+
   }
