@@ -17,6 +17,7 @@ export class HeadComponent {
   mensajeBienvenida : string ="";
 
 
+
   constructor(public usuariosService: UsuariosService, private router: Router){
 
     // this.usuario = new Usuario
@@ -48,6 +49,6 @@ export class HeadComponent {
 
   navegarARegistro(){
 
-    this.router.navigateByUrl('/registro');
+    this.router.navigate(['/registro']);
   }
 }

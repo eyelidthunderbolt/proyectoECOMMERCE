@@ -17,15 +17,26 @@ export class RegistroComponent {
 
   }
   altaUsuario(usuarioForm : NgForm){
-    usuarioForm.value._id = null;
+
+    if(usuarioForm.value.nombre == "" || usuarioForm.value.email == "" ||  usuarioForm.value.password == "" || usuarioForm.value.direccion == "" || usuarioForm.value.fechaN == ""){
+      M.toast({html:"Faltan campos requeridos"})
+    }
+    else{
+
+      usuarioForm.value._id = null;
     this.usuarioService.crearUsuario(usuarioForm.value)
     .subscribe(res =>{
 
       console.log(res);
-      this.resetForm();
-      M.toast({html : "Usuario Registrado"})
+      M.toast({html:"Usuario Registrado"})
+      this.resetForm(usuarioForm);
+
 
     })
+
+
+    }
+
 
   }
 
