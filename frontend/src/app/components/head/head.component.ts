@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../models/usuario';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -18,12 +19,16 @@ export class HeadComponent {
 
 
 
-  constructor(public usuariosService: UsuariosService, private router: Router){
+  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService){
 
     // this.usuario = new Usuario
     // this.usuarios = [];
 
 
+  }
+
+  updateData(){
+    this.dataService.updateData(false)
   }
 
   login(email : string, password : string){
@@ -50,5 +55,6 @@ export class HeadComponent {
   navegarARegistro(){
 
     this.router.navigate(['/registro']);
+    this.updateData();
   }
 }

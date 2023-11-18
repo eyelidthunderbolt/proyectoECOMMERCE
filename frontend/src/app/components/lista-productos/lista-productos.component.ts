@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/productos.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -9,8 +10,9 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class ListaProductosComponent {
   productos: Producto[] = [];
+  visibilidad : boolean = true;
 
-  constructor(public productoService: ProductosService) {}
+  constructor(public productoService: ProductosService, private dataService : DataService) {}
 
   recogerProductos() { //metodo para obtener el listado de productos de la base de datos
     return this.productoService.mostrarProductos()
@@ -22,5 +24,8 @@ export class ListaProductosComponent {
 
   ngOnInit(): void { // para que lo cargue nada mas cargar el modulo
     this.recogerProductos();
+    this.dataService.myData$.subscribe((data) => {
+      this.visibilidad = data;
+    });
   }
 }

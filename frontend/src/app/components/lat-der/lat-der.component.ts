@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-lat-der',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class LatDerComponent {
 
+  visibilidad : boolean = true;
+
+  constructor(private dataService : DataService){}
+
+  ngOnInit(): void {
+
+    this.dataService.myData$.subscribe((data) => {
+      this.visibilidad = data;
+    });
+  }
 }
+
+
