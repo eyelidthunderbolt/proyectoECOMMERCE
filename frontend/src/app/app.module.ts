@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './components/head/head.component';
 import { CentralComponent } from './components/central/central.component';
@@ -13,6 +13,13 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { Router } from 'express';
+
+
+const appRoutes: Routes = [
+  { path: 'registro', component: RegistroComponent},
+ ];
 
 @NgModule({
   declarations: [
@@ -25,12 +32,16 @@ import { FooterComponent } from './components/footer/footer.component';
     CarritoComponent,
     ListaProductosComponent,
     ProductoComponent,
-    FooterComponent
+    FooterComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterModule.forRoot(appRoutes),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

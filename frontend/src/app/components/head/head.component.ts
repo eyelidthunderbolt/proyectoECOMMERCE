@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../models/usuario';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -15,10 +17,18 @@ export class HeadComponent {
   // usuarios : Usuario[]
   mensajeBienvenida : string ="";
 
-  constructor(public usuariosService: UsuariosService){
+
+
+  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService){
 
     // this.usuario = new Usuario
     // this.usuarios = [];
+
+
+  }
+
+  updateData(){
+    this.dataService.updateData(false)
   }
 
   login(email : string, password : string){
@@ -30,7 +40,7 @@ export class HeadComponent {
         const logeado = usuariosFiltrados.length > 0;
 
         if(logeado){
-          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].email;
+          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].nombre;
         }
 
         else{
@@ -40,5 +50,11 @@ export class HeadComponent {
 
 
       });
+  }
+
+  navegarARegistro(){
+
+    this.router.navigate(['/registro']);
+    this.updateData();
   }
 }

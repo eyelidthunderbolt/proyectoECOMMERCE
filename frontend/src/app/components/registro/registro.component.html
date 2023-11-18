@@ -1,0 +1,65 @@
+<h1>Registro de Usuario</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #usuarioForm="ngForm" (ngSubmit)="altaUsuario(usuarioForm)">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="hidden" name="_id" #_id="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado._id" placeholder
+                                    placeholder="ID de empleado">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="nombre" #nombre="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado.nombre"
+                                    placeholder="Introduzca su nombre">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="email" #email="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado.email" placeholder
+                                    placeholder="Introduzca su email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="password" name="password" #password="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado.password" placeholder
+                                    placeholder="Introduzca su contraseña">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="direccion" #direccion="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado.direccion"
+                                    placeholder="Introduzca su direccion">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="fechaN" #fechaN="ngModel"
+                                    [(ngModel)]="usuarioService.usuarioSeleccionado.fechaN" placeholder
+                                    placeholder="Introduzca su fecha de nacimiento">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <div class="input field col s12">
+                                <button type="reset" class="btn right">Reiniciar</button>
+                                <button type="submit" class="btn right" ngSubmit>Registrarse</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+
+        </div>
+    </div>
+</div>

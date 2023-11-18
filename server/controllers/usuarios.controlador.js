@@ -6,6 +6,7 @@ const usuariosModels = require('../models/usuarios');
 controladorUsuario.crearUsuario = async (req, res, next) => {
     const nuevoUsuario = new usuariosModels(req.body);
     await nuevoUsuario.save();
+    res.json('Usuario Almacenado');
 }
 
 controladorUsuario.mostrarUsuario = async (req, res, next) => {
