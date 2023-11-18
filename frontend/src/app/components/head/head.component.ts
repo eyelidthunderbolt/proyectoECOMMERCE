@@ -27,8 +27,8 @@ export class HeadComponent {
 
   }
 
-  updateData(){
-    this.dataService.updateData(false)
+  updateVisibilidad(){
+    this.dataService.updateVisibilidad(false)
   }
 
   login(email : string, password : string){
@@ -55,6 +55,6 @@ export class HeadComponent {
   navegarARegistro(){
 
     this.router.navigate(['/registro']);
-    this.updateData();
+    this.updateVisibilidad();
   }
 }

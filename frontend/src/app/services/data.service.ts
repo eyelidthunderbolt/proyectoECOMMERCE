@@ -8,7 +8,7 @@ export class DataService {
   private myDataSubject = new BehaviorSubject<boolean>(true);
   myData$ = this.myDataSubject.asObservable();
 
-  updateData(nuevaVisibilidad: boolean) {
+  updateVisibilidad(nuevaVisibilidad: boolean) {
     this.myDataSubject.next(nuevaVisibilidad);
   }
 }
