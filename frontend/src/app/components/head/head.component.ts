@@ -34,7 +34,7 @@ export class HeadComponent {
         const logeado = usuariosFiltrados.length > 0;
 
         if(logeado){
-          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].email;
+          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].nombre;
         }
 
         else{
@@ -46,8 +46,8 @@ export class HeadComponent {
       });
   }
 
-  /*navegarARegistro(){
+  navegarARegistro(){
 
-    this.router.navigate(['/registro']);
-  }*/
+    this.router.navigateByUrl('/registro');
+  }
 }

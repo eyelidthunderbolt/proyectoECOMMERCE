@@ -17,7 +17,7 @@ export class RegistroComponent {
 
   }
   altaUsuario(usuarioForm : NgForm){
-
+    usuarioForm.value._id = null;
     this.usuarioService.crearUsuario(usuarioForm.value)
     .subscribe(res =>{
 
