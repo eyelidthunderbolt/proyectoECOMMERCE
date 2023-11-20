@@ -1,7 +1,7 @@
 const controladorCarrito = {};
 const { request } = require('express');
-const Carritos = require('../models/Carritos');
-const CarritosModels = require('../models/Carritos');
+const Carritos = require('../models/carritos');
+const CarritosModels = require('../models/carritos');
 
 controladorCarrito.mostrarCarritos = async (req,res) => {
     const leerCarritos = await CarritosModels.find();
@@ -21,16 +21,7 @@ controladorCarrito.mostrarCarrito = async (req,res) => {
     res.json(buscarCarrito)
 }
 
-controladorCarrito.editarCarrito = async (req,res) => {
-    const { id } = req.params;
-    const CarritoAEditar = {
 
-        //Definir campos del Carrito
-    };
-
-    await CarritosModels.findByIdAndUpdate(id,{ $set: CarritoAEditar }, {new:true});
-    res.json('Carrito Actualizado');
-}
 
 controladorCarrito.borrarCarrito = async (req,res) => {
     await Carritos.findByIdAndDelete(req.params.id);

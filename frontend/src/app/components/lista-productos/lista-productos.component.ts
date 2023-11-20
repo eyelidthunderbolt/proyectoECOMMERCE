@@ -24,6 +24,7 @@ export class ListaProductosComponent {
 
   ngOnInit(): void { // para que lo cargue nada mas cargar el modulo
     this.recogerProductos();
+    
     this.dataService.myData$.subscribe((data) => {
       this.visibilidad = data;
     });
