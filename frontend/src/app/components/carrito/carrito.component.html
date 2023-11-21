@@ -1,1 +1,7 @@
-<p>carrito works!</p>
+<ul>
+    <li *ngFor="let producto of arrayProductos">
+        {{producto}}
+
+    </li>
+    <p *ngIf="this.total!=0">TOTAL {{total}} €</p>
+</ul>
