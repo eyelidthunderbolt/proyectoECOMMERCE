@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Carrito } from 'src/app/models/carrito';
+//import { CarritoService } from '../../services/carritos.service';
 
 @Component({
   selector: 'app-lat-der',
@@ -10,7 +12,9 @@ export class LatDerComponent {
 
   visibilidad : boolean = true;
 
-  constructor(private dataService : DataService){}
+  constructor(private dataService : DataService){} //añadir el argumento carritoService
+
+  guardarCarrito(){}
 
   ngOnInit(): void {
 
