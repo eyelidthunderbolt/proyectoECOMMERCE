@@ -1,31 +1,31 @@
-const controladorCarrito = {};
+const controladorProducto = {};
 const { request } = require('express');
-const carritos = require('../models/carritos');
-const carritosModels = require('../models/carritos');
+const productos = require('../models/productos');
+const productosModels = require('../models/productos');
 
-controladorCarrito.mostrarCarritos = async (req,res) => {
-    const leerCarritos = await carritosModels.find();
-    res.json(leerCarritos);
+controladorProducto.mostrarProductos = async (req,res) => {
+    const leerProductos = await productos.find();
+    res.json(leerProductos);
 }
 
 controladorProducto.crearProducto = async (req,res) => {
     const nuevoProducto = new productosModels(req.body);
     await nuevoProducto.save();
 
-    res.json("Carrito Almacenado");
+    res.json("Producto Almacenado");
 }
 
-controladorProducto.mostrarCarrito = async (req,res) => {
+controladorProducto.mostrarProducto = async (req,res) => {
 
-    const buscarCarrito = await carritosModels.findById(req.params.id);
-    res.json(buscarCarrito)
+    const buscarProducto = await productosModels.findById(req.params.id);
+    res.json(buscarProducto)
 }
 
 
 
-controladorCarrito.borrarCarrito = async (req,res) => {
+controladorProducto.borrarProducto = async (req,res) => {
     await productos.findByIdAndDelete(req.params.id);
-    res.json('Carrito Eliminado')
+    res.json('Producto Eliminado')
 }
 
 module.exports = controladorProducto;
