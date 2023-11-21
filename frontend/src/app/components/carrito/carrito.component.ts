@@ -37,6 +37,22 @@ export class CarritoComponent implements OnInit {
     this.productoNombre$.subscribe((nuevoNombre) => {
       this.arrayProductos.push(nuevoNombre);
     });
+
+
+  }
+
+  realizarCompra(){
+
+    let carrito : Carrito = new Carrito();
+
+    carrito.emailUsuario = "";
+    carrito.listaProductos = this.arrayProductos;
+    this.eventoCarrito.emit(carrito)
+    while (this.arrayProductos.length > 0){
+      this.arrayProductos.pop();
+    }
+    this.total = 0;
+
   }
 
   }

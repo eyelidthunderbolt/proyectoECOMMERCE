@@ -30,6 +30,8 @@ app.use(require('./routes/productos.routes.js')) // con esto usamos la ruta que 
 app.use('/api/productos', require('./routes/productos.routes.js')) // usa empleados y requiere las rutas
 app.use(require('./routes/usuarios.routes.js'))
 app.use('/api/usuarios', require('./routes/usuarios.routes.js'))
+app.use(require('./routes/carritos.routes.js'))
+app.use('/api/carritos', require('./routes/carritos.routes.js'))
 // Inicializar el servidor
 
 
