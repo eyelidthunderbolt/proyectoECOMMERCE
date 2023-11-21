@@ -21,6 +21,25 @@ controladorProducto.mostrarProducto = async (req,res) => {
     res.json(buscarProducto)
 }
 
+controladorProducto.editarProducto = async (req,res) => {
+
+    const { id } = req.params; //esto si o si ya que va a indicar que los parametros se van a necesitar obligatoriamente
+    const productoAEditar = {
+
+        foto: req.body.foto,
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        categoria: req.body.categoria,
+        precio: req.body.precio
+
+
+    };
+
+    await productosModels.findByIdAndUpdate(id, { $set: productoAEditar }, {new:true});
+    res.json('PRODUCTO ACTUALIZADO')
+
+}
+
 
 
 controladorProducto.borrarProducto = async (req,res) => {
