@@ -4,7 +4,7 @@ const productos = require('../models/productos');
 const productosModels = require('../models/productos');
 
 controladorProducto.mostrarProductos = async (req,res) => {
-    const leerProductos = await productosModels.find();
+    const leerProductos = await productos.find();
     res.json(leerProductos);
 }
 
@@ -21,16 +21,7 @@ controladorProducto.mostrarProducto = async (req,res) => {
     res.json(buscarProducto)
 }
 
-controladorProducto.editarProducto = async (req,res) => {
-    const { id } = req.params;
-    const productoAEditar = {
 
-        //Definir campos del producto
-    };
-
-    await productosModels.findByIdAndUpdate(id,{ $set: productoAEditar }, {new:true});
-    res.json('Producto Actualizado');
-}
 
 controladorProducto.borrarProducto = async (req,res) => {
     await productos.findByIdAndDelete(req.params.id);
