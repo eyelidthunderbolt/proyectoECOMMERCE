@@ -31,7 +31,7 @@ export class CarritoComponent implements OnInit {
     this.productoNombre$ = this.dataService.productoNombre$;
     this.productoPrecio$ = this.dataService.productoPrecio$;
 
-    this.arrayProductos = [];
+  
 
     // Suscribirse al cambio de productoPrecio$
     this.productoPrecio$.subscribe((nuevoPrecio) => {
@@ -40,7 +40,10 @@ export class CarritoComponent implements OnInit {
 
     // Suscribirse al cambio de productoNombre$
     this.productoNombre$.subscribe((nuevoNombre) => {
-      this.arrayProductos.push(nuevoNombre);
+      if(nuevoNombre != ""){
+        this.arrayProductos.push(nuevoNombre);
+      }
+      
     });
 
 
