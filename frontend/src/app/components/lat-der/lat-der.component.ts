@@ -3,7 +3,7 @@ import { DataService } from '../../services/data.service';
 import { Carrito } from 'src/app/models/carrito';
 import { CarritosService } from 'src/app/services/carritos.service';
 
-declare var M : any;
+declare var M: any;
 
 @Component({
   selector: 'app-lat-der',
@@ -12,26 +12,35 @@ declare var M : any;
 })
 export class LatDerComponent {
 
-  visibilidad : boolean = true;
+  visibilidad: boolean = true;
 
 
-  constructor(private dataService : DataService, private carritoService : CarritosService){
+  constructor(private dataService: DataService, private carritoService: CarritosService) {
 
   } //añadir el argumento carritoService al constructor
 
-  guardarCarrito(carrito : Carrito){
+  guardarCarrito(carrito: Carrito) {
+
+    if (carrito.listaProductos.length > 0 && carrito.listaProductos[0]!="") {
+
+      this.carritoService.crearCarrito(carrito)
+        .subscribe((res: any) => {
+
+          console.log(res);
+          M.toast({ html: "Compra Realizada" })
 
 
 
-    this.carritoService.crearCarrito(carrito)
-    .subscribe((res: any) =>{
+        })
+    }
 
-      console.log(res);
-      M.toast({html:"Compra Realizada"})
+    else{
+
+      M.toast({ html: "Carrito Vacio" })
+
+    }
 
 
-
-    })
   }
 
   ngOnInit(): void {
