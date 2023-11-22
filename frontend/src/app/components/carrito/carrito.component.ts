@@ -1,9 +1,9 @@
-import { Component,OnInit,Output,EventEmitter } from '@angular/core';
-import {DataService} from '../../services/data.service'
-import {Carrito} from '../../models/carrito'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../../services/data.service'
+import { Carrito } from '../../models/carrito'
 //import {CarritoService} from '../../services/carritos.service'
 
-declare var M : any;
+declare var M: any;
 
 @Component({
   selector: 'app-carrito',
@@ -15,9 +15,9 @@ export class CarritoComponent implements OnInit {
   productoNombre$ = this.dataService.productoNombre$;
   productoPrecio$ = this.dataService.productoPrecio$;
 
-  public arrayProductos : Array<string>=[]
-  public total : number=0;
-  public carrito : Carrito;
+  public arrayProductos: Array<string> = []
+  public total: number = 0;
+  public carrito: Carrito;
 
   @Output() eventoCarrito = new EventEmitter<Carrito>();
 
@@ -25,10 +25,13 @@ export class CarritoComponent implements OnInit {
     this.carrito = new Carrito()
   }
 
-  ngOnInit(){
+  ngOnInit() {
+
 
     this.productoNombre$ = this.dataService.productoNombre$;
     this.productoPrecio$ = this.dataService.productoPrecio$;
+
+    this.arrayProductos = [];
 
     // Suscribirse al cambio de productoPrecio$
     this.productoPrecio$.subscribe((nuevoPrecio) => {
@@ -43,47 +46,49 @@ export class CarritoComponent implements OnInit {
 
   }
 
-  realizarCompra(){
+  realizarCompra() {
 
-    let carrito : Carrito = new Carrito();
+    let carrito: Carrito = new Carrito();
 
-    let token : string | null = sessionStorage.getItem('token');
-    let idUsuario : string
+    let token: string | null = sessionStorage.getItem('token');
+    let idUsuario: string
 
-    if(token!=null) {
+    if (token != null) {
 
       idUsuario = token;
 
-    carrito.idUsuario = idUsuario;
-    carrito.listaProductos = this.arrayProductos;
-    carrito.totalCompra = this.total;
-    this.eventoCarrito.emit(carrito)
-    console.log(carrito.idUsuario);
-    while (this.arrayProductos.length > 0){
-      this.arrayProductos.pop();
-    }
-    this.total = 0;
+      carrito.idUsuario = idUsuario.trim();
+      carrito.listaProductos = this.arrayProductos;
+      carrito.totalCompra = this.total;
+      this.eventoCarrito.emit(carrito)
+      console.log(carrito.idUsuario);
+      console.log(this.arrayProductos.length);
+      while (this.arrayProductos.length > 0) {
+        this.arrayProductos.pop();
+      }
+      this.total = 0;
+
+
+
 
     }
 
-    else if(token==null) {
-      M.toast({html : "Usuario no logeado. Ingrese antes de realizar compra"})
+    else if (token == null) {
+      M.toast({ html: "Usuario no logeado. Ingrese antes de realizar compra" })
     }
-    else if(this.arrayProductos.length > 0){
-      M.toast({html : "No hay productos"})
-    }
+
 
 
 
 
   }
 
-  vaciar(){
+  vaciar() {
     this.arrayProductos = [];
     this.total = 0;
   }
 
-  }
+}
 
 
 
