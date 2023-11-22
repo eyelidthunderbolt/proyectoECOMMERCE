@@ -16,6 +16,9 @@ export class HeadComponent {
   // usuario : Usuario;
   // usuarios : Usuario[]
   mensajeBienvenida : string ="";
+  emailUsuario : string ="";
+  token : string ="";
+  nombreUsuarios : string ="";
 
 
 
@@ -41,6 +44,10 @@ export class HeadComponent {
 
         if(logeado){
           this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].nombre;
+          sessionStorage.setItem('nombreUsuario', usuariosFiltrados[0].nombre)
+          sessionStorage.setItem('token', JSON.stringify(usuariosFiltrados[0]._id));
+          sessionStorage.setItem('emailUsuario', JSON.stringify(usuariosFiltrados[0].email));
+
         }
 
         else{
