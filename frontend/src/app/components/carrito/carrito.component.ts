@@ -40,7 +40,11 @@ export class CarritoComponent implements OnInit {
 
     // Suscribirse al cambio de productoNombre$
     this.productoNombre$.subscribe((nuevoNombre) => {
-      this.arrayProductos.push(nuevoNombre);
+
+      if(nuevoNombre != ""){
+        this.arrayProductos.push(nuevoNombre);
+      }
+
     });
 
 
