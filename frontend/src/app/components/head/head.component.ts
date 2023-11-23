@@ -64,4 +64,8 @@ export class HeadComponent {
     this.router.navigate(['/registro']);
     this.updateVisibilidad();
   }
+
+  navegarAHistorial(){
+
+  }
 }
