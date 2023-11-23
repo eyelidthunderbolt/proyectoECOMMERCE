@@ -43,7 +43,6 @@ export class CarritoComponent implements OnInit {
       if(nuevoNombre != ""){
         this.arrayProductos.push(nuevoNombre);
       }
-      
     });
 
 
