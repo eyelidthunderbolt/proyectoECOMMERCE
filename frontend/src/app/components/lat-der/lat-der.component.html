@@ -1,2 +1,2 @@
 <div class="contenedor-principal" *ngIf="visibilidad">Componente Derecho</div>
-<app-carrito (eventoCarrito)="guardarCarrito($event)"></app-carrito>
+<app-carrito *ngIf="visibilidad" (eventoCarrito)="guardarCarrito($event)"></app-carrito>

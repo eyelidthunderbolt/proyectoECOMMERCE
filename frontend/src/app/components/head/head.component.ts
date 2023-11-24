@@ -5,6 +5,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../models/usuario';
 import { DataService } from '../../services/data.service';
 
+declare var M : any;
 
 @Component({
   selector: 'app-head',
@@ -32,6 +33,12 @@ export class HeadComponent {
 
   updateVisibilidad(){
     this.dataService.updateVisibilidad(false)
+  }
+
+  compartirID(idUsuario:string){
+
+    this.dataService.compartirUsuario(idUsuario);
+
   }
 
   login(email : string, password : string){
@@ -66,6 +73,23 @@ export class HeadComponent {
   }
 
   navegarAHistorial(){
+
+    let token: string | null = sessionStorage.getItem('token');
+    let idUsuario: string
+
+    if(token != null){
+
+      idUsuario = token
+      this.compartirID(idUsuario)
+      this.router.navigate(['/misCompras']);
+      this.updateVisibilidad();
+    }
+
+    else{
+      M.toast({html:"Usuario no logeado"})
+    }
+
+
 
   }
 }
