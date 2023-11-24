@@ -2,7 +2,7 @@ export class Carrito {
 
     idUsuario : string = "";
     listaProductos : Array<string> =[];
-    fechaCompra : Date = new Date();
+    fechaCompra : string = new Date().toLocaleDateString(); // local
     totalCompra : number = 0;
 
 
