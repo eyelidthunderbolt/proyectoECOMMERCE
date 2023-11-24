@@ -61,8 +61,6 @@ export class HeadComponent {
           this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
           let token: string | null = sessionStorage.getItem('token');
-
-
           this.idUsuario = token
 
         }
@@ -105,6 +103,7 @@ export class HeadComponent {
     //Add 'implements OnInit' to the class.
     let nombreU : string | null = sessionStorage.getItem('nombreUsuario');
     this.nombreUsuario = nombreU;
+    this.idUsuario = sessionStorage.getItem('token')
 
     if (this.nombreUsuario != null) {
 
