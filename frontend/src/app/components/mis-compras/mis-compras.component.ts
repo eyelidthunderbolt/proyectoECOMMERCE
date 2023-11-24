@@ -27,7 +27,8 @@ export class MisComprasComponent implements OnInit {
 
         if(encontrado){
 
-          this.pedidos = carritos;
+          this.pedidos = carritosFiltrados;
+          console.log(carritosFiltrados[0].idUsuario);
 
         }
 
@@ -42,6 +43,8 @@ export class MisComprasComponent implements OnInit {
     this.dataService.usuarioIDSource$.subscribe((data) => {
       this.idUsuario = data;
       this.recogerPedidos(this.idUsuario)
+      console.log(this.idUsuario);
+
     });
   }
 
