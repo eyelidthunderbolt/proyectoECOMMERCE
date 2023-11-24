@@ -16,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { Router } from 'express';
 import { MisComprasComponent } from './components/mis-compras/mis-compras.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     ProductoComponent,
     FooterComponent,
     RegistroComponent,
-    MisComprasComponent
+    MisComprasComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
