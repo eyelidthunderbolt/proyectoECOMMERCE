@@ -14,9 +14,18 @@ export class DataService {
   private productoPrecioSource = new BehaviorSubject<number>(0);
   productoPrecio$ = this.productoPrecioSource.asObservable();
 
+  private usuarioIDSource = new BehaviorSubject<string>('');
+  usuarioIDSource$ = this.usuarioIDSource.asObservable();
+
   compartirProducto(productoNombre: string, productoPrecio: number) {
     this.productoNombreSource.next(productoNombre);
     this.productoPrecioSource.next(productoPrecio);
+  }
+
+  compartirUsuario(idUsuario : string){
+
+    this.usuarioIDSource.next(idUsuario)
+
   }
 
 
