@@ -15,7 +15,6 @@
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Fecha Compra: {{ pedido.fechaCompra }}</span>
-        <p>ID {{pedido.idUsuario}}</p>
         <p>Productos:</p>
         <ul>
           <li *ngFor="let producto of pedido.listaProductos"> - {{ producto }}</li>
