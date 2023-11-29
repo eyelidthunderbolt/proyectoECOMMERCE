@@ -5,6 +5,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../models/usuario';
 import { DataService } from '../../services/data.service';
 
+declare var M: any;
 
 @Component({
   selector: 'app-head',
@@ -15,14 +16,14 @@ export class HeadComponent {
 
   // usuario : Usuario;
   // usuarios : Usuario[]
-  mensajeBienvenida : string ="";
-  emailUsuario : string ="";
-  token : string ="";
-  nombreUsuarios : string ="";
+  mensajeBienvenida: string = "";
+  emailUsuario: string = "";
+  idUsuario: string | null = null;
+  nombreUsuario: string | null = null;
 
 
 
-  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService){
+  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService) {
 
     // this.usuario = new Usuario
     // this.usuarios = [];
@@ -30,11 +31,19 @@ export class HeadComponent {
 
   }
 
-  updateVisibilidad(){
+  updateVisibilidad() {
     this.dataService.updateVisibilidad(false)
   }
 
-  login(email : string, password : string){
+  compartirID(idUsuario: string) {
+
+    this.dataService.compartirUsuario(idUsuario);
+
+  }
+
+  login(email: string, password: string) {
+    sessionStorage.clear();
+
     this.usuariosService.mostrarUsuarios()
       .subscribe(res => {
         const usuarios = res as Usuario[];
@@ -42,16 +51,22 @@ export class HeadComponent {
         const usuariosFiltrados = usuarios.filter((usuario: Usuario) => usuario.email === email && usuario.password === password);
         const logeado = usuariosFiltrados.length > 0;
 
-        if(logeado){
-          this.mensajeBienvenida = "Bienvenido " + usuariosFiltrados[0].nombre;
+        if (logeado) {
+
           sessionStorage.setItem('nombreUsuario', usuariosFiltrados[0].nombre)
           sessionStorage.setItem('token', JSON.stringify(usuariosFiltrados[0]._id));
           sessionStorage.setItem('emailUsuario', JSON.stringify(usuariosFiltrados[0].email));
+          M.toast({ html: "Usuario Logeado con éxito" })
+          this.nombreUsuario = usuariosFiltrados[0].nombre;
+          this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
+
+          let token: string | null = sessionStorage.getItem('token');
+          this.idUsuario = token
 
         }
 
-        else{
-          this.mensajeBienvenida ="Email o contraseña incorrectos"
+        else {
+          this.mensajeBienvenida = "Email o contraseña incorrectos"
         }
 
 
@@ -59,9 +74,41 @@ export class HeadComponent {
       });
   }
 
-  navegarARegistro(){
+  navegarARegistro() {
 
     this.router.navigate(['/registro']);
     this.updateVisibilidad();
+  }
+
+  navegarAHistorial() {
+
+
+
+    if (this.idUsuario != null) {
+
+
+      this.compartirID(this.idUsuario)
+      this.router.navigate(['/misCompras']);
+      this.updateVisibilidad();
+    }
+
+    else {
+      M.toast({ html: "Usuario no logeado" })
+    }
+
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    let nombreU : string | null = sessionStorage.getItem('nombreUsuario');
+    this.nombreUsuario = nombreU;
+    this.idUsuario = sessionStorage.getItem('token')
+
+    if (this.nombreUsuario != null) {
+
+      this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
+
+    }
   }
 }

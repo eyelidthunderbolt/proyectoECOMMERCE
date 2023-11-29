@@ -15,10 +15,13 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { Router } from 'express';
+import { MisComprasComponent } from './components/mis-compras/mis-compras.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const appRoutes: Routes = [
   { path: 'registro', component: RegistroComponent},
+  { path: 'misCompras', component:MisComprasComponent}
  ];
 
 @NgModule({
@@ -33,7 +36,9 @@ const appRoutes: Routes = [
     ListaProductosComponent,
     ProductoComponent,
     FooterComponent,
-    RegistroComponent
+    RegistroComponent,
+    MisComprasComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
