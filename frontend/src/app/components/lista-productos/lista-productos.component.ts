@@ -29,4 +29,8 @@ export class ListaProductosComponent {
       this.visibilidad = data;
     });
   }
+
+  mostrarProductosFiltrados(arrayProductos: Producto[]){
+    
+  }
 }
