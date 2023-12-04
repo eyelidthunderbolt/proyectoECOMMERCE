@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+  import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/productos.service';
 import { DataService } from '../../services/data.service';
@@ -11,6 +11,7 @@ import { DataService } from '../../services/data.service';
 export class ListaProductosComponent {
   productos: Producto[] = [];
   visibilidad : boolean = true;
+  categoria : string = ""
 
   constructor(public productoService: ProductosService, private dataService : DataService) {}
 
@@ -22,15 +23,42 @@ export class ListaProductosComponent {
       });
   }
 
+  mostrarProductos(){ // este es el metodo para mostrar los productos en lista-productos
+
+    if(this.categoria == ''){
+
+      this.recogerProductos();
+
+    }
+
+    else{
+        
+      this.productoService.mostrarProductos()
+      .subscribe(res => {
+        const productos = res as Producto[];
+        const productosFiltrados = productos.filter((producto : Producto) => producto.categoria === this.categoria);
+        this.productos = productosFiltrados;
+      })
+    }
+  }
+  
+
   ngOnInit(): void { // para que lo cargue nada mas cargar el modulo
-    this.recogerProductos();
+    this.dataService.categoria$.subscribe((dato) =>{ // aqui cargo la categoria que me viene del otro componente
+      this.categoria = dato
+      console.log(this.categoria);
+      this.mostrarProductos();
+    })
+
     
+    
+    //this.mostrarProductos();    
     this.dataService.myData$.subscribe((data) => {
       this.visibilidad = data;
     });
   }
 
-  mostrarProductosFiltrados(arrayProductos: Producto[]){
-    
-  }
+  
+
+  
 }
