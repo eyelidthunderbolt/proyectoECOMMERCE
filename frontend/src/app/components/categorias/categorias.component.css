@@ -3,21 +3,28 @@
     padding: 0;
     margin: 0;
     justify-content: space-around;
+    
+    
   }
   
   .categoria-btn {
     padding: 15px 25px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    color: #333;
+    background-color: #2bbbad;
+    color: #ffffff;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+
   }
   
   .categoria-btn:hover {
-    background-color: #f5f5f5;
+    background-color: #239387;
     border-color: #999;
   }
   
