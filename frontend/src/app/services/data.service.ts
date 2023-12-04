@@ -15,7 +15,8 @@ export class DataService {
   private productoPrecioSource = new BehaviorSubject<number>(0);
   productoPrecio$ = this.productoPrecioSource.asObservable();
 
- 
+  private categoriaSource = new BehaviorSubject<string>('');
+  categoria$ = this.categoriaSource.asObservable(); // la categoria que quiero pasar
 
   private usuarioIDSource = new BehaviorSubject<string>('');
   usuarioIDSource$ = this.usuarioIDSource.asObservable();
@@ -26,9 +27,17 @@ export class DataService {
     this.productoPrecioSource.next(productoPrecio);
   }
 
-  compartirUsuario(idUsuario : string){
+  compartirUsuario(idUsuario: string) {
 
     this.usuarioIDSource.next(idUsuario)
+
+  }
+
+  compartirCategoria(categoria: string) {
+
+    this.categoriaSource.next(categoria); // el metodo pa pillar la categoria
+
+
 
   }
 
