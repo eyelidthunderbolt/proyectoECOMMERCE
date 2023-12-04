@@ -1,0 +1,36 @@
+.footer {
+    background-color: rgb(241, 161, 124);
+    padding: 20px 0;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.elemento {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.elemento h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.elemento ul {
+    list-style: none;
+    padding: 0;
+}
+
+.elemento ul li {
+    margin-bottom: 5px;
+}
+
+.elemento ul li a {
+    color: #333;
+    text-decoration: none;
+}
