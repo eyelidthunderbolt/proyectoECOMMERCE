@@ -63,8 +63,6 @@ export class CarritoComponent implements OnInit {
       carrito.listaProductos = this.arrayProductos;
       carrito.totalCompra = this.total;
       this.eventoCarrito.emit(carrito)
-      console.log(carrito.idUsuario);
-      console.log(this.arrayProductos.length);
       while (this.arrayProductos.length > 0) {
         this.arrayProductos.pop();
       }

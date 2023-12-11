@@ -18,9 +18,9 @@ export class CategoriasComponent {
     return this.productoService.mostrarProductos()
       .subscribe(res => {
         this.productos = res as Producto[];
-        //console.log(res)
+        
         const productosFiltrados = this.productos.filter((Producto:Producto)=> Producto.categoria === categoria); //Guardamos los porductos filtrados por la categoria que se pasa en el tipo String en el metodo
-        console.log(productosFiltrados)
+        
       });
   }
 
@@ -28,7 +28,7 @@ export class CategoriasComponent {
 
     this.categoria = categoria;
     this.dataService.compartirCategoria(this.categoria); // aqui storeo la categoria
-    console.log(this.categoria);
+    
     
     
   }
