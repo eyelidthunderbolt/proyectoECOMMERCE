@@ -11,7 +11,7 @@ import { DataService } from '../../services/data.service';
 export class ListaProductosComponent {
   productos: Producto[] = [];
   visibilidad : boolean = true;
-  categoria : string = ""
+  categoria : string = 'Todos los productos'
 
   constructor(public productoService: ProductosService, private dataService : DataService) {}
 
@@ -25,7 +25,7 @@ export class ListaProductosComponent {
 
   mostrarProductos(){ // este es el metodo para mostrar los productos en lista-productos
 
-    if(this.categoria == ''){
+    if(this.categoria == 'Todos los productos'){
 
       this.recogerProductos();
 
