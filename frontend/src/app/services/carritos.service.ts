@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Carrito } from '../models/carrito';
+import { Carrito,CarritoItem } from '../models/carrito';
 
 @Injectable({ providedIn: 'root' })
 

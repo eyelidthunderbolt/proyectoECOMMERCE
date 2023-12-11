@@ -21,7 +21,7 @@ export class LatDerComponent {
 
   guardarCarrito(carrito: Carrito) {
 
-    if (carrito.listaProductos.length > 0 && carrito.listaProductos[0]!="") {
+    if (carrito.items.length > 0) {
 
       this.carritoService.crearCarrito(carrito)
         .subscribe((res: any) => {
