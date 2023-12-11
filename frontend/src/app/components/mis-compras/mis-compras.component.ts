@@ -28,7 +28,7 @@ export class MisComprasComponent implements OnInit {
         if(encontrado){
 
           this.pedidos = carritosFiltrados;
-          console.log(carritosFiltrados[0].idUsuario);
+          
 
         }
 

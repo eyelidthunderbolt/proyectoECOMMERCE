@@ -20,6 +20,7 @@ export class HeadComponent {
   emailUsuario: string = "";
   idUsuario: string | null = null;
   nombreUsuario: string | null = null;
+  adminLogeado: boolean = false;
 
 
 
@@ -54,14 +55,16 @@ export class HeadComponent {
         if (logeado) {
 
           sessionStorage.setItem('nombreUsuario', usuariosFiltrados[0].nombre)
-          sessionStorage.setItem('token', JSON.stringify(usuariosFiltrados[0]._id));
+          sessionStorage.setItem('token', usuariosFiltrados[0]._id.toString());
           sessionStorage.setItem('emailUsuario', JSON.stringify(usuariosFiltrados[0].email));
           M.toast({ html: "Usuario Logeado con éxito" })
           this.nombreUsuario = usuariosFiltrados[0].nombre;
           this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
           let token: string | null = sessionStorage.getItem('token');
-          this.idUsuario = token
+          this.idUsuario = token;
+          
+          
 
         }
 
@@ -69,9 +72,21 @@ export class HeadComponent {
           this.mensajeBienvenida = "Email o contraseña incorrectos"
         }
 
+        
+        if (this.idUsuario == "65775637dff5a89887c18915") {
 
+          this.adminLogeado = true;
+
+        }
+
+        else {
+          this.adminLogeado = false;
+        }
+        console.log(this.idUsuario);
+        console.log(this.adminLogeado)
 
       });
+
   }
 
   navegarARegistro() {
@@ -101,14 +116,17 @@ export class HeadComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    let nombreU : string | null = sessionStorage.getItem('nombreUsuario');
+    let nombreU: string | null = sessionStorage.getItem('nombreUsuario');
     this.nombreUsuario = nombreU;
-    this.idUsuario = sessionStorage.getItem('token')
+    this.idUsuario = sessionStorage.getItem('token');
+
+
 
     if (this.nombreUsuario != null) {
 
       this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
     }
+
   }
 }
