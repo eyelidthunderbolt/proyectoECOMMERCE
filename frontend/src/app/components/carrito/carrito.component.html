@@ -1,9 +1,9 @@
 <p> Componente Carrito</p>
 <ul>
-    <li *ngFor="let producto of arrayProductos">
-        {{producto}}
+    <li *ngFor="let producto of carrito.items">
+        {{producto.nombre}} {{producto.cantidad}}
 
     </li>
-    <p *ngIf="this.total!=0">TOTAL {{total}} €</p>
+    <p *ngIf="this.carrito.totalCompra">TOTAL {{carrito.totalCompra}} €</p>
 </ul>
 <button id="boton-vaciar" class="btn btn-dangers" (click)="vaciar()" >Vaciar</button><button class="btn btn-danger" (click)="realizarCompra()">Comprar</button>

@@ -17,7 +17,7 @@
         <span class="card-title">Fecha Compra: {{ pedido.fechaCompra }}</span>
         <p>Productos:</p>
         <ul>
-          <li *ngFor="let producto of pedido.listaProductos"> - {{ producto }}</li>
+          <li *ngFor="let producto of pedido.items"> - {{ producto }}</li>
         </ul>
         <p>Total económico Pedido: {{ pedido.totalCompra }} €</p>
       </div>
