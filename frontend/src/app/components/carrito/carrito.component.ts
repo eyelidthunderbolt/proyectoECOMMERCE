@@ -17,6 +17,8 @@ export class CarritoComponent implements OnInit {
 
   @Output() eventoCarrito = new EventEmitter<Carrito>();
 
+  visibilidad: boolean = true;
+
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
