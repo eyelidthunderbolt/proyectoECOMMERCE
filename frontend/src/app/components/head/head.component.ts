@@ -18,6 +18,7 @@ export class HeadComponent {
   // usuarios : Usuario[]
   mensajeBienvenida: string = "";
   emailUsuario: string = "";
+  passwordUsuario : string = "";
   idUsuario: string | null = null;
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
@@ -82,8 +83,8 @@ export class HeadComponent {
         else {
           this.adminLogeado = false;
         }
-        console.log(this.idUsuario);
-        console.log(this.adminLogeado)
+        this.emailUsuario = "";
+        this.passwordUsuario = "";
 
       });
 
