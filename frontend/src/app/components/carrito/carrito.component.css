@@ -1,0 +1,11 @@
+.carrito {
+    list-style: none;
+    padding: 25px;
+    margin: 10px;
+    justify-content: space-around;
+    box-shadow: 5px 5px 10px rgba(186, 186, 186, 0.5);
+    padding-top: 5px;
+    padding-right: 45px;
+    
+    
+  }
