@@ -1,7 +1,7 @@
 <p> Componente Carrito</p>
 <ul>
     <li *ngFor="let producto of carrito.items">
-        {{producto.nombre}} {{producto.cantidad}}
+        {{producto.nombre}} Cant.{{producto.cantidad}}
 
     </li>
     <p *ngIf="this.carrito.totalCompra">TOTAL {{carrito.totalCompra}} €</p>
