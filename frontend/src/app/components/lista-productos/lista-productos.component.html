@@ -1,4 +1,4 @@
-<p class="categoria" *ngIf="visibilidad">Categoria Seleccionada: {{categoria}}</p>
+<strong class="categoria" *ngIf="visibilidad">Categoria Seleccionada: {{categoria}}</strong>
 <div class="caja-productos" *ngIf="visibilidad==true">
     <app-producto *ngFor="let producto of productos" [producto]="producto"></app-producto>
 </div>

@@ -13,5 +13,8 @@ button{
   margin: 10px;
 }
 strong{
-  margin: 5px;
+  margin-left: 35%;
+}
+#boton-vaciar{
+  margin-left: 12%;
 }
