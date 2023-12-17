@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './components/head/head.component';
-import { HomeComponent } from './components/home/home.component';
 import { CentralComponent } from './components/central/central.component';
 import { LatIzqComponent } from './components/lat-izq/lat-izq.component';
 import { LatDerComponent } from './components/lat-der/lat-der.component';
@@ -18,13 +17,43 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { Router } from 'express';
 import { MisComprasComponent } from './components/mis-compras/mis-compras.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { PublicLayoutComponentComponent } from './components/public-layout-component/public-layout-component.component';
+import { AdminLayoutComponentComponent } from './components/admin-layout-component/admin-layout-component.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'registro', component: RegistroComponent},
-  { path: 'misCompras', component:MisComprasComponent}
- ];
+// const appRoutes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'admin', component: AdminComponent },
+//   { path: 'registro', component: RegistroComponent},
+//   { path: 'misCompras', component:MisComprasComponent}
+//  ];
+
+ const appRoutes: Routes = [
+
+  //Rutas publicas
+  {
+      path: '',
+      component: PublicLayoutComponentComponent,
+      children: [
+        { path: '', component: CentralComponent, pathMatch: 'full'},
+        { path: 'registro', component: RegistroComponent },
+        { path: 'misCompras', component: MisComprasComponent }
+      ]
+  },
+
+  //Rutas de Admin
+  {
+      path: '',
+      component: AdminLayoutComponentComponent,
+      children: [
+        { path: 'admin', component: AdminComponent },
+      ]
+  },
+
+  // En otro caso redirecciona a home
+  // { path: '**', redirectTo: '' } // opcional
+];
 
 @NgModule({
   declarations: [
@@ -38,10 +67,12 @@ const appRoutes: Routes = [
     ListaProductosComponent,
     ProductoComponent,
     FooterComponent,
-    HomeComponent,
     RegistroComponent,
     MisComprasComponent,
-    AdminComponent
+    AdminComponent,
+    PublicLayoutComponentComponent,
+    AdminLayoutComponentComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
