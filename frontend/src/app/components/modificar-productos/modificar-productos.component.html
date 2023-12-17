@@ -1,7 +1,8 @@
 <div class="col s7">
     <table>
         <thead>
-            <th>NOMBRE</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
             <th>Descripcion</th>
             <th>Categoria</th>
             <th>Precio</th>
@@ -9,6 +10,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let producto of productosService.productos">
+                <td>{{producto.foto}}</td>
                 <td>{{producto.nombre}}</td>
                 <td>{{producto.descripcion}}</td>
                 <td>{{producto.categoria}}</td>
