@@ -12,7 +12,7 @@ declare var M: any;
 })
 export class LatDerComponent {
 
-  visibilidad: boolean = true;
+
 
 
   constructor(private dataService: DataService, private carritoService: CarritosService) {
@@ -43,12 +43,7 @@ export class LatDerComponent {
 
   }
 
-  ngOnInit(): void {
 
-    this.dataService.myData$.subscribe((data) => {
-      this.visibilidad = data;
-    });
-  }
 }
 
 

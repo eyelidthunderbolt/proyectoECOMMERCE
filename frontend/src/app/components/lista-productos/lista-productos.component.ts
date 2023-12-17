@@ -32,7 +32,7 @@ export class ListaProductosComponent {
     }
 
     else{
-        
+
       this.productoService.mostrarProductos()
       .subscribe(res => {
         const productos = res as Producto[];
@@ -41,24 +41,21 @@ export class ListaProductosComponent {
       })
     }
   }
-  
+
 
   ngOnInit(): void { // para que lo cargue nada mas cargar el modulo
     this.dataService.categoria$.subscribe((dato) =>{ // aqui cargo la categoria que me viene del otro componente
       this.categoria = dato
-      
+
       this.mostrarProductos();
     })
 
-    
-    
-    //this.mostrarProductos();    
-    this.dataService.myData$.subscribe((data) => {
-      this.visibilidad = data;
-    });
+
+
+
   }
 
-  
 
-  
+
+
 }

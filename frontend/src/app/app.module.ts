@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './components/head/head.component';
+import { HomeComponent } from './components/home/home.component';
 import { CentralComponent } from './components/central/central.component';
 import { LatIzqComponent } from './components/lat-izq/lat-izq.component';
 import { LatDerComponent } from './components/lat-der/lat-der.component';
@@ -20,6 +21,7 @@ import { AdminComponent } from './components/admin/admin.component';
 
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'registro', component: RegistroComponent},
   { path: 'misCompras', component:MisComprasComponent}
  ];
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     ListaProductosComponent,
     ProductoComponent,
     FooterComponent,
+    HomeComponent,
     RegistroComponent,
     MisComprasComponent,
     AdminComponent
