@@ -18,7 +18,6 @@ export class ProductoComponent {
     descripcion: "",
     categoria: "",
     precio: 0,
-    cantidad: 0,
     stock: 0,
   }
 
