@@ -23,7 +23,7 @@ export class ModificarProductosComponent {
   }
 
   editarProducto(producto: Producto){
-    this.productosService.productoSeleccionado = producto;
+    //this.productosService.productoSeleccionado = producto;
   }
 
   eliminarProducto(_id : string){
