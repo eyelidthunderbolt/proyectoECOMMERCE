@@ -1,0 +1,30 @@
+<div class="col s7">
+    <table>
+        <thead>
+            <th>NOMBRE</th>
+            <th>Descripcion</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productosService.productos">
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.categoria}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.stock}}</td>
+                <td>
+                    <a (click)="editarProducto(producto)">
+                        <i class="material-icons">edit</i>
+                    </a>
+
+                </td>
+                <td><a (click)="eliminarProducto(producto._id)">
+                        <i class="material-icons">delete</i></a>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

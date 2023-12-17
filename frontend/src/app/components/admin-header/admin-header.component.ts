@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -7,10 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AdminHeaderComponent {
 
-  constructor(){}
+  constructor(private router : Router){}
 
-  navegarAltas(){}
+  navegarAltas(){
 
-  navegarModificaciones(){}
+    this.router.navigate(['/altaProductos'])
+
+  }
+
+  navegarModificaciones(){
+
+    this.router.navigate(['/modificarProductos'])
+  }
 
 }

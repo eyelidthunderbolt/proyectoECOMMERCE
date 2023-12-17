@@ -20,6 +20,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PublicLayoutComponentComponent } from './components/public-layout-component/public-layout-component.component';
 import { AdminLayoutComponentComponent } from './components/admin-layout-component/admin-layout-component.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
+import { AltaProductosComponent } from './components/alta-productos/alta-productos.component';
+import { ModificarProductosComponent } from './components/modificar-productos/modificar-productos.component';
 
 
 // const appRoutes: Routes = [
@@ -48,6 +50,8 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
       component: AdminLayoutComponentComponent,
       children: [
         { path: 'admin', component: AdminComponent },
+        { path: 'altaProductos', component: AltaProductosComponent },
+        { path: 'modificarProductos', component: ModificarProductosComponent}
       ]
   },
 
@@ -72,7 +76,9 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
     AdminComponent,
     PublicLayoutComponentComponent,
     AdminLayoutComponentComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    AltaProductosComponent,
+    ModificarProductosComponent
   ],
   imports: [
     BrowserModule,
