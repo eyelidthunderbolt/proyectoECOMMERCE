@@ -1,62 +1,51 @@
 <div class="container">
     <div class="row">
-        <div class="col s5">
+        <div class="col s12 m6 offset-m3">
             <div class="card">
                 <div class="card-content">
                     <form #productoForm="ngForm" (ngSubmit)="anhadirProducto(productoForm)">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="hidden" name="_id" #_id="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado._id" placeholder
-                                    placeholder="ID de producto">
-                            </div>
+                        <div class="input-field">
+                            <input type="hidden" name="_id" #_id="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado._id" placeholder="ID de producto">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="foto" #foto="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.foto"
-                                    placeholder="Introduzca foto">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="foto" #foto="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.foto" placeholder="Introduzca foto">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="nombre" #nombre="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.nombre"
-                                    placeholder="Introduzca nombre Producto">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="nombre" #nombre="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.nombre"
+                                placeholder="Introduzca nombre Producto">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="descripcion" #descripcion="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.descripcion"
-                                    placeholder="Introduzca descripcion">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="descripcion" #descripcion="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.descripcion"
+                                placeholder="Introduzca descripcion">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="categoria" #categoria="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.categoria"
-                                    placeholder="Introduzca categoria">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="categoria" #categoria="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.categoria"
+                                placeholder="Introduzca categoria">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="precio" #precio="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.precio"
-                                    placeholder="Introduzca precio">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="precio" #precio="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.precio" placeholder="Introduzca precio">
+
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="stock" #stock="ngModel"
-                                    [(ngModel)]="productosService.productoSeleccionado.stock"
-                                    placeholder="Introduzca stock">
-                            </div>
+                        <div class="input-field">
+                            <input type="text" name="stock" #stock="ngModel"
+                                [(ngModel)]="productosService.productoSeleccionado.stock" placeholder="Introduzca stock">
+
                         </div>
                         <div class="card-action">
-                            <div class="input field col s12">
-                                <button type="reset" class="btn right">RESET</button>
-                                <button type="submit" class="btn right" ngSubmit>ENVIAR</button>
+                            <div class="input-field">
+                                <button type="reset" class="btn waves-effect waves-light right">RESET</button>
+                                <button type="submit" class="btn waves-effect waves-light right">ENVIAR</button>
                             </div>
                         </div>
                     </form>
