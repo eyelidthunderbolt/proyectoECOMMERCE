@@ -15,7 +15,7 @@
       <a (click)="navegarAHistorial()">Mis Compras</a>
     </li>
     <li *ngIf="adminLogeado">
-      <a>Administracion</a>
+      <a (click)="navegarAAdmin()">Administracion</a>
     </li>
     <li>
       <input type="text" placeholder="E-Mail" #usuario [(ngModel)]="emailUsuario">

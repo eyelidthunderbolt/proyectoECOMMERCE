@@ -18,7 +18,7 @@ export class HeadComponent {
   // usuarios : Usuario[]
   mensajeBienvenida: string = "";
   emailUsuario: string = "";
-  passwordUsuario : string = "";
+  passwordUsuario: string = "";
   idUsuario: string | null = null;
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
@@ -71,15 +71,10 @@ export class HeadComponent {
         }
 
 
-        if (this.idUsuario == "65775637dff5a89887c18915" || this.idUsuario == "657ee96e32525ff095667118") {
+        this.comprobarAdmin(this.idUsuario);
 
-          this.adminLogeado = true;
 
-        }
 
-        else {
-          this.adminLogeado = false;
-        }
         this.emailUsuario = "";
         this.passwordUsuario = "";
 
@@ -91,6 +86,10 @@ export class HeadComponent {
 
     this.router.navigate(['/registro']);
 
+  }
+
+  navegarAAdmin() {
+    this.router.navigate(['/admin']);
   }
 
   navegarAHistorial() {
@@ -111,12 +110,24 @@ export class HeadComponent {
 
   }
 
+  comprobarAdmin(idUsuario: string | null) {
+    if (idUsuario == "65775637dff5a89887c18915" || idUsuario == "657ee96e32525ff095667118") {
+
+      this.adminLogeado = true;
+
+    } else {
+      this.adminLogeado = false;
+    }
+  }
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     let nombreU: string | null = sessionStorage.getItem('nombreUsuario');
     this.nombreUsuario = nombreU;
     this.idUsuario = sessionStorage.getItem('token');
+    this.comprobarAdmin(this.idUsuario)
+
 
 
 
