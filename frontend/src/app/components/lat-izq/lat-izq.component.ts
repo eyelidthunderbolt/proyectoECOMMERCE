@@ -8,16 +8,11 @@ import { DataService } from '../../services/data.service';
 })
 export class LatIzqComponent {
 
-  visibilidad : boolean = true;
+
 
   constructor(private dataService : DataService){}
 
-  ngOnInit(): void {
 
-    this.dataService.myData$.subscribe((data) => {
-      this.visibilidad = data;
-    });
-  }
 
 
 }

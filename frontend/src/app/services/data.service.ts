@@ -6,8 +6,6 @@ import { Producto } from '../models/producto';
   providedIn: 'root',
 })
 export class DataService {
-  private myDataSubject = new BehaviorSubject<boolean>(true);
-  myData$ = this.myDataSubject.asObservable();
 
   private productoNombreSource = new BehaviorSubject<string>('');
   productoNombre$ = this.productoNombreSource.asObservable();
@@ -43,7 +41,5 @@ export class DataService {
 
 
 
-  updateVisibilidad(nuevaVisibilidad: boolean) {
-    this.myDataSubject.next(nuevaVisibilidad);
-  }
+
 }

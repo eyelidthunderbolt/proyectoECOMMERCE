@@ -33,9 +33,6 @@ export class HeadComponent {
 
   }
 
-  updateVisibilidad() {
-    this.dataService.updateVisibilidad(false)
-  }
 
   compartirID(idUsuario: string) {
 
@@ -64,8 +61,8 @@ export class HeadComponent {
 
           let token: string | null = sessionStorage.getItem('token');
           this.idUsuario = token;
-          
-          
+
+
 
         }
 
@@ -73,8 +70,8 @@ export class HeadComponent {
           this.mensajeBienvenida = "Email o contraseña incorrectos"
         }
 
-        
-        if (this.idUsuario == "65775637dff5a89887c18915") {
+
+        if (this.idUsuario == "65775637dff5a89887c18915" || this.idUsuario == "657ee96e32525ff095667118") {
 
           this.adminLogeado = true;
 
@@ -93,7 +90,7 @@ export class HeadComponent {
   navegarARegistro() {
 
     this.router.navigate(['/registro']);
-    this.updateVisibilidad();
+
   }
 
   navegarAHistorial() {
@@ -105,7 +102,7 @@ export class HeadComponent {
 
       this.compartirID(this.idUsuario)
       this.router.navigate(['/misCompras']);
-      this.updateVisibilidad();
+
     }
 
     else {
