@@ -33,18 +33,18 @@ import { ModificarProductosComponent } from './components/modificar-productos/mo
 
  const appRoutes: Routes = [
 
-  //Rutas publicas
+  //Rutas publicas Que se cargan en app module.html
   {
       path: '',
-      component: PublicLayoutComponentComponent,
+      component: PublicLayoutComponentComponent, //Componente que carga "de base"
       children: [
-        { path: '', component: CentralComponent, pathMatch: 'full'},
+        { path: '', component: CentralComponent, pathMatch: 'full'}, //Aunque no este pathMatch al estar declarado primero carga esto en el app module.html
         { path: 'registro', component: RegistroComponent },
         { path: 'misCompras', component: MisComprasComponent }
       ]
   },
 
-  //Rutas de Admin
+  //Rutas de Admin Componentes del panel de control administrador
   {
       path: '',
       component: AdminLayoutComponentComponent,
