@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 declare var M : any;
 
@@ -11,6 +12,8 @@ declare var M : any;
   styleUrls: ['./formulario-productos.component.css']
 })
 export class FormularioProductosComponent {
+
+  public categorias : Array<string> = ["Camiseta", "Pantalon", "Zapatillas", "Relojes"];
 
   constructor(public productosService: ProductosService){}
 
