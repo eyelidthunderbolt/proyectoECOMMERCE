@@ -6,12 +6,15 @@
     box-shadow: 5px 5px 10px rgba(186, 186, 186, 0.5);
     padding-top: 5px;
     padding-right: 45px;
-    
-    
+
+
   }
 button{
   margin: 10px;
 }
 strong{
-  margin: 5px;
+  margin-left: 35%;
+}
+#boton-vaciar{
+  margin-left: 12%;
 }

@@ -6,10 +6,10 @@
     box-shadow: 5px 5px 10px rgba(186, 186, 186, 0.5);
     padding-top: 5px;
     padding-right: 45px;
-    
-    
+
+
   }
-  
+
   .categoria-btn {
     padding: 15px 25px;
     border: 1px solid #ccc;
@@ -22,16 +22,21 @@
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 5px;
+    margin-left: 10px;
 
   }
-  
+
   .categoria-btn:hover {
     background-color: #239387;
     border-color: #999;
   }
-  
+
   .categoria-btn:active {
     background-color: #ddd;
     border-color: #888;
+
+  }
+
+  strong{
+    margin-left: 35%;
   }
