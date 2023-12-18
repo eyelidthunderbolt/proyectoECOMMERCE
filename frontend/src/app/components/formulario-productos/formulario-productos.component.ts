@@ -25,9 +25,9 @@ export class FormularioProductosComponent {
 
   anhadirProducto(form : NgForm){
 
-    if(form.value.nombre == "" || form.value.descripcion == "" || form.value.categorias == "" || form.value.precio == "" || form.value.stock == "" ){
+    if(form.value.nombre == "" || form.value.descripcion == "" || form.value.categorias == "" || (form.value.precio == "" || isNaN(form.value.precio))  || (form.value.stock == "" || isNaN(form.value.stock)) ){
 
-      M.toast({html:"Faltan campos requeridos"})
+      M.toast({html:"Faltan campos requeridos / Valores incorrectos"})
     }
 
     else if(form.value._id){
