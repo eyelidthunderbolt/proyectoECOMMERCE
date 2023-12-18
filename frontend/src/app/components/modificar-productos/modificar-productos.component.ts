@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from 'src/app/models/producto';
+import {Router} from '@angular/router';
 
 declare var M : any
 
@@ -11,7 +12,7 @@ declare var M : any
 })
 export class ModificarProductosComponent {
 
-  constructor(public productosService : ProductosService){}
+  constructor(public productosService : ProductosService, public router : Router){}
 
   obtenerProductos(){
 
@@ -23,7 +24,9 @@ export class ModificarProductosComponent {
   }
 
   editarProducto(producto: Producto){
-    //this.productosService.productoSeleccionado = producto;
+
+    this.router.navigate(['actualizarProducto', producto._id])
+    this.productosService.productoSeleccionado = producto;
   }
 
   eliminarProducto(_id : string){

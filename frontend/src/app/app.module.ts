@@ -20,8 +20,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PublicLayoutComponentComponent } from './components/public-layout-component/public-layout-component.component';
 import { AdminLayoutComponentComponent } from './components/admin-layout-component/admin-layout-component.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
-import { AltaProductosComponent } from './components/alta-productos/alta-productos.component';
 import { ModificarProductosComponent } from './components/modificar-productos/modificar-productos.component';
+import { FormularioProductosComponent } from './components/formulario-productos/formulario-productos.component';
 
 
 // const appRoutes: Routes = [
@@ -50,8 +50,10 @@ import { ModificarProductosComponent } from './components/modificar-productos/mo
       component: AdminLayoutComponentComponent,
       children: [
         { path: 'admin', component: AdminComponent },
-        { path: 'altaProductos', component: AltaProductosComponent },
-        { path: 'modificarProductos', component: ModificarProductosComponent}
+        { path: 'altaProductos', component: FormularioProductosComponent },
+        { path: 'modificarProductos', component: ModificarProductosComponent},
+        { path: 'actualizarProducto/:id', component: FormularioProductosComponent}
+
       ]
   },
 
@@ -77,8 +79,8 @@ import { ModificarProductosComponent } from './components/modificar-productos/mo
     PublicLayoutComponentComponent,
     AdminLayoutComponentComponent,
     AdminHeaderComponent,
-    AltaProductosComponent,
-    ModificarProductosComponent
+    ModificarProductosComponent,
+    FormularioProductosComponent
   ],
   imports: [
     BrowserModule,
