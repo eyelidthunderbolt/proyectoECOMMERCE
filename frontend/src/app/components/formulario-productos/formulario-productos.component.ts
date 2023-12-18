@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from 'src/app/models/producto';
 import { NgForm } from '@angular/forms';
@@ -17,9 +17,20 @@ export class FormularioProductosComponent {
 
   constructor(public productosService: ProductosService){}
 
+  ngAfterViewInit() {
+    // Script de inicialización de Materialize CSS
+    const elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems, {});
+  }
+
   anhadirProducto(form : NgForm){
 
-    if(form.value._id){
+    if(form.value.nombre == "" || form.value.descripcion == "" || form.value.categorias == "" || form.value.precio == "" || form.value.stock == "" ){
+
+      M.toast({html:"Faltan campos requeridos"})
+    }
+
+    else if(form.value._id){
 
       this.productosService.actualizarProducto(form.value)
       .subscribe(res => {
