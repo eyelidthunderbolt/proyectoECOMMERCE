@@ -81,8 +81,7 @@ import { ComponenteNuevoComponent } from './componente-nuevo/componente-nuevo.co
     AdminLayoutComponentComponent,
     AdminHeaderComponent,
     ModificarProductosComponent,
-    FormularioProductosComponent,
-    ComponenteNuevoComponent
+    FormularioProductosComponent
   ],
   imports: [
     BrowserModule,
