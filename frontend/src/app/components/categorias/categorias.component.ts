@@ -29,8 +29,6 @@ export class CategoriasComponent {
     this.categoria = categoria;
     this.dataService.compartirCategoria(this.categoria); // aqui storeo la categoria
     
-    
-    
   }
 }
 
