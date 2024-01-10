@@ -22,7 +22,6 @@ import { AdminLayoutComponentComponent } from './components/admin-layout-compone
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { ModificarProductosComponent } from './components/modificar-productos/modificar-productos.component';
 import { FormularioProductosComponent } from './components/formulario-productos/formulario-productos.component';
-import { ComponenteNuevoComponent } from './componente-nuevo/componente-nuevo.component';
 
 
 // const appRoutes: Routes = [
