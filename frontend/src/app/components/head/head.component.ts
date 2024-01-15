@@ -111,7 +111,7 @@ export class HeadComponent {
   }
 
   comprobarAdmin(idUsuario: string | null) {
-    if (idUsuario == "65775637dff5a89887c18915" || idUsuario == "657ee96e32525ff095667118") {
+    if (idUsuario == "65775637dff5a89887c18915" || idUsuario == "657ee96e32525ff095667118" || idUsuario == "659edc5eba2b17b6693e2397") {
 
       this.adminLogeado = true;
 

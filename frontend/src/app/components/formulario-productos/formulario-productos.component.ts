@@ -24,21 +24,25 @@ export class FormularioProductosComponent {
   }
 
   anhadirProducto(form : NgForm){
-
+    
     if(form.value.nombre == "" || form.value.descripcion == "" || form.value.categorias == "" || (form.value.precio == "" || isNaN(form.value.precio))  || (form.value.stock == "" || isNaN(form.value.stock)) ){
 
       M.toast({html:"Faltan campos requeridos / Valores incorrectos"})
-    }
+    }else{
+      form.value.precio=this.convertirACentimos(form.value.precio)
 
-    else if(form.value._id){
-
+    
+    
+   if(form.value._id){
+      form.value.precio=this.convertirACentimos(form.value.precio)
       this.productosService.actualizarProducto(form.value)
       .subscribe(res => {
-
+        
         console.log(res);
         this.resetForm();
         M.toast({html : "Producto Actualizado"})
         this.obtenerProductos()
+
 
       })
     }
@@ -54,6 +58,7 @@ export class FormularioProductosComponent {
       })
     }
     }
+  }
 
     obtenerProductos(){
 
@@ -73,6 +78,12 @@ export class FormularioProductosComponent {
       form.reset();
       this.productosService.productoSeleccionado = new Producto;
     }
+  }
+
+  convertirACentimos(precio:number){
+    var precioFinal=0
+    precioFinal = precio*100
+    return precioFinal
   }
 
 }
