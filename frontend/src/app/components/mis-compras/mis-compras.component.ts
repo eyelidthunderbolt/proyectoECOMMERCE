@@ -13,6 +13,7 @@ export class MisComprasComponent implements OnInit {
 
   public idUsuario : string = '';
   public pedidos : Carrito[] = [];
+  public totalFacturacion : number = 0;
 
   constructor(private dataService: DataService, private carritoService: CarritosService){}
 
@@ -28,6 +29,9 @@ export class MisComprasComponent implements OnInit {
         if(encontrado){
 
           this.pedidos = carritosFiltrados;
+          this.calcularFacturacion(this.pedidos)
+
+          
           
 
         }
@@ -36,6 +40,16 @@ export class MisComprasComponent implements OnInit {
 
       });
 
+  }
+
+  calcularFacturacion(pedidos : Carrito[]){
+    this.totalFacturacion = 0;
+    for (let index = 0; index < this.pedidos.length; index++) {
+            
+
+      this.totalFacturacion += this.pedidos[index].totalCompra;
+      
+    }
   }
 
   ngOnInit(): void {
