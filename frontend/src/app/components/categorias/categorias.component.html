@@ -1,10 +1,10 @@
 
 <strong>Categorias</strong>
 <ul class="categorias">
-    <li><button class="categoria-btn" (click)="recogerCategoria('Todos los productos')">Todos</button></li>
-    <li><button class="categoria-btn" (click)="recogerCategoria('Camiseta')">Camisetas</button></li>
-    <li><button class="categoria-btn" (click)="recogerCategoria('Pantalon')">Pantalones</button></li>
-    <li><button class="categoria-btn" (click)="recogerCategoria('Zapatillas')">Zapatillas</button></li>
-    <li><button class="categoria-btn" (click)="recogerCategoria('Relojes')">Relojes</button></li>
+    <li><button class="categoria-btn {{ !categoria || categoria === 'Todos los productos' ? 'activo' : '' }}" (click)="recogerCategoria('Todos los productos')">Todos</button></li>
+    <li><button class="categoria-btn {{ categoria === 'Camiseta' ? 'activo' : '' }}" (click)="recogerCategoria('Camiseta')">Camisetas</button></li>
+    <li><button class="categoria-btn {{ categoria === 'Pantalon' ? 'activo' : '' }}" (click)="recogerCategoria('Pantalon')">Pantalones</button></li>
+    <li><button class="categoria-btn {{ categoria === 'Zapatillas' ? 'activo' : '' }}" (click)="recogerCategoria('Zapatillas')">Zapatillas</button></li>
+    <li><button class="categoria-btn {{ categoria === 'Relojes' ? 'activo' : '' }}" (click)="recogerCategoria('Relojes')">Relojes</button></li>
 </ul>
 
