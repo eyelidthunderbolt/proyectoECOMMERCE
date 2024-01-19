@@ -26,6 +26,13 @@
 
   }
 
+  .categoria-btn.activo {
+
+    background-color: #ddd;
+    color: #333;
+
+  }
+
   .categoria-btn:hover {
     background-color: #239387;
     border-color: #999;
