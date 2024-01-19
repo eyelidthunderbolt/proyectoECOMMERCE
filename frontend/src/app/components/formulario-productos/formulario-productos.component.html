@@ -9,11 +9,16 @@
                                 [(ngModel)]="productosService.productoSeleccionado._id" placeholder="ID de producto">
 
                         </div>
-                        <div class="input-field">
+                        <!--<div class="input-field">
                             <input type="text" name="foto" #foto="ngModel"
                                 [(ngModel)]="productosService.productoSeleccionado.foto" placeholder="Introduzca foto">
 
+                        </div>-->
+                        <div class="input-field">
+                            <label for="foto">Seleccionar Foto:</label>
+                            <input type="file"  name="foto" (change)="onFileSelected($event)" accept="image/*">
                         </div>
+
                         <div class="input-field">
                             <input type="text" name="nombre" #nombre="ngModel"
                                 [(ngModel)]="productosService.productoSeleccionado.nombre"

@@ -14,8 +14,19 @@ declare var M: any;
 export class FormularioProductosComponent {
 
   public categorias: Array<string> = ["Camiseta", "Pantalon", "Zapatillas", "Relojes"];
+  public selectedFile : any
+
+
 
   constructor(public productosService: ProductosService) { }
+
+  onFileSelected(event: any) {
+
+
+    this.selectedFile = event.target.files[0];
+
+
+  }
 
   ngAfterViewInit() {
     // Script de inicialización de Materialize CSS
@@ -47,6 +58,7 @@ export class FormularioProductosComponent {
 
     else {
       form.value._id = null;
+      form.value.foto = this.uploadImage(form.value.nombre, this.selectedFile)
       this.productosService.crearProducto(form.value)
         .subscribe(res => {
           console.log(res)
@@ -56,6 +68,28 @@ export class FormularioProductosComponent {
         })
     }
 
+  }
+
+  uploadImage(productName: string, file: File): string | null {
+    if (file) {
+      const folderPath = '/assets/';
+      const fileName = `${productName.replace(/\s+/g, '-')}_${new Date().getTime()}.${file.name.split('.').pop()}`;
+      const filePath = `${folderPath}${fileName}`;
+
+      this.productosService.guardarImagen(file, folderPath, fileName)
+
+      let url = 'http://localhost:3000/api/productos/subir-imagen';
+      let data = new FormData();
+      data.append('file', file);
+      data.append("fileName", fileName)
+      fetch(url, {
+        method: 'POST',
+        body: data
+      })
+
+      return filePath;
+    }
+    return null;
   }
 
   obtenerProductos() {
@@ -78,10 +112,10 @@ export class FormularioProductosComponent {
     }
   }
 
-  convertirACentimos(precio: number) {
+ /* convertirACentimos(precio: number) {
     var precioFinal = 0
     precioFinal = precio * 100
     return precioFinal
-  }
+  }*/
 
 }

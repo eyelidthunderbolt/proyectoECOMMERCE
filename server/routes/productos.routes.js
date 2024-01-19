@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs')
 const router = express.Router();
 const { mostrarProductos, crearProductos } = require('../controllers/productos.controlador')
 const prodControl = require('../controllers/productos.controlador')
@@ -8,5 +9,35 @@ router.post('/', prodControl.crearProducto);
 router.get('/:id', prodControl.mostrarProducto);
 router.put('/:id', prodControl.editarProducto);
 router.delete('/:id', prodControl.borrarProducto);
+// router.post('/subir-imagen', prodControl.guardarImagen);
+
+const multer  = require('multer');
+const path = require('path')
+const upload = multer({ dest: path.join('.') });
+
+router.post('/subir-imagen', upload.single('file'), function(req, res) {
+  const filename = req.body.fileName;
+  const file = req.file;
+
+  console.log("++++++++");
+  console.log(filename);
+  console.log(file);
+
+  var tmp_path = req.file.path;
+
+  /** The original name of the uploaded file
+      stored in the variable "originalname". **/
+  var target_path = path.join(__dirname, '..', '..', 'frontend', 'src', 'assets', filename);
+  console.log(target_path);
+
+  /** A better way to copy the uploaded file. **/
+  var src = fs.createReadStream(tmp_path);
+  var dest = fs.createWriteStream(target_path);
+  src.pipe(dest);
+  src.on('end', function() { console.log('TO BIEN') });
+  src.on('error', function(err) { console.log('NO BIEN, SI MAL') });
+
+  res.send(200);
+});
 
 module.exports = router;

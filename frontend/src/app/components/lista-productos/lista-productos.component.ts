@@ -12,6 +12,7 @@ export class ListaProductosComponent {
   productos: Producto[] = [];
   visibilidad : boolean = true;
   categoria : string = 'Todos los productos'
+  
 
   constructor(public productoService: ProductosService, private dataService : DataService) {}
 
@@ -49,6 +50,7 @@ export class ListaProductosComponent {
 
       this.mostrarProductos();
     })
+
 
 
 

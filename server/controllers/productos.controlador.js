@@ -47,4 +47,11 @@ controladorProducto.borrarProducto = async (req,res) => {
     res.json('Producto Eliminado')
 }
 
+// controladorProducto.guardarImagen =  (req,res) => {
+//     console.log("++++++++++++++++++++++++++++++++++++++++++++++ aki", req.files, req.body.fileName);
+//     fs.writeFileSync(path.resolve(`../../frontend/src/imagenes/${req.body.fileName}`), req.files);
+//     console.log("+++++++++ sus huevos");
+// }
+
+
 module.exports = controladorProducto;

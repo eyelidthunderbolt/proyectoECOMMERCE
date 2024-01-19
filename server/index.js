@@ -2,7 +2,9 @@ const express = require('express'); //llamamos al modulo express para poder trab
 const app = express(); //crea una instancia de express llamado app
 const morgan = require('morgan');
 const {mongoose} = require('./database.js')
+// const fileUpload = require('express-fileupload')
 const cors = require('cors');
+
 //  Settings
 
 app.set('port', process.env.PORT || 3000); //setear el puerto , si no se puede usar el proporcionado por defecto intentara usar el 3000
@@ -19,7 +21,9 @@ app.listen (app.get('port'), () => { // indica que va a estar a la escucha usand
 
 app.use(morgan('dev')); // indica que usamos morgan
 app.use(express.json()); // indica que usamos express
+// app.use(fileUpload()); // indica que usamos fileupload
 app.use(cors({origin:'*'})); // indica que usamos el cors con origen todos
+
 
 
 
