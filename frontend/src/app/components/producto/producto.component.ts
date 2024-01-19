@@ -13,7 +13,7 @@ import {DataService} from '../../services/data.service'
 export class ProductoComponent {
   imagePath: string = ""
 
-  
+
 
   @Input() producto : Producto = {
     _id: "",
@@ -31,7 +31,6 @@ export class ProductoComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.producto.precio = this.producto.precio / 100;
-    this.imagePath = this.productoService.getImagePath();
   }
   anhadirProducto(producto : Producto){
 
@@ -40,5 +39,6 @@ export class ProductoComponent {
 
 
   }
+
 
 }

@@ -15,17 +15,17 @@ export class FormularioProductosComponent {
 
   public categorias: Array<string> = ["Camiseta", "Pantalon", "Zapatillas", "Relojes"];
   public selectedFile : any
-  
+
 
 
   constructor(public productosService: ProductosService) { }
 
   onFileSelected(event: any) {
 
-    
+
     this.selectedFile = event.target.files[0];
 
-    
+
   }
 
   ngAfterViewInit() {
@@ -72,20 +72,22 @@ export class FormularioProductosComponent {
 
   uploadImage(productName: string, file: File): string | null {
     if (file) {
-      const folderPath = 'imagenes/';
+      const folderPath = '/assets/';
       const fileName = `${productName.replace(/\s+/g, '-')}_${new Date().getTime()}.${file.name.split('.').pop()}`;
       const filePath = `${folderPath}${fileName}`;
 
-      // Assuming you have a backend service to handle file uploads
-      // You need to implement the logic to upload the file to your server
-      // and return the relative path, or you can use Angular HttpClient to send the file to the server.
+      this.productosService.guardarImagen(file, folderPath, fileName)
 
-      // Example:
-      // this.productosService.uploadImage(file, filePath).subscribe(response => {
-      //   console.log(response);
-      // });
+      let url = 'http://localhost:3000/api/productos/subir-imagen';
+      let data = new FormData();
+      data.append('file', file);
+      data.append("fileName", fileName)
+      fetch(url, {
+        method: 'POST',
+        body: data
+      })
 
-      return filePath; // Return the relative path
+      return filePath;
     }
     return null;
   }
@@ -110,10 +112,10 @@ export class FormularioProductosComponent {
     }
   }
 
-  convertirACentimos(precio: number) {
+ /* convertirACentimos(precio: number) {
     var precioFinal = 0
     precioFinal = precio * 100
     return precioFinal
-  }
+  }*/
 
 }

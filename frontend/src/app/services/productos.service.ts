@@ -9,11 +9,13 @@ export class ProductosService {
   productos: Producto[]; // array para almacenar los productos que vamos obteniendo
   readonly URL = 'http://localhost:3000/api/productos';
   imagePath: string;
+  imagenArchivo?: File | null;
 
   constructor(private http: HttpClient) {
     this.productoSeleccionado = new Producto();
     this.productos = [];
     this.imagePath = "";
+    this.imagenArchivo = null;
   }
 
   mostrarProductos() {
@@ -32,7 +34,10 @@ export class ProductosService {
     return this.http.delete(this.URL + `/${_id}`)
   }
 
-  
+  guardarImagen(archivo : File, path : string, nombreImagen:string){
+  let ruta = path;
+  this.imagenArchivo = archivo;
+  }
 
   setImagePath(path: string) {
     this.imagePath = path;
