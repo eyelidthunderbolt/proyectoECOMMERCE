@@ -47,6 +47,36 @@ controladorProducto.borrarProducto = async (req,res) => {
     res.json('Producto Eliminado')
 }
 
+controladorProducto.actualizarStock = async (req, res) => {
+    const { id, cantidad } = req.params;
+
+
+
+    try {
+        const producto = await productosModels.findById(id);
+
+        if (!producto) {
+            return res.status(404).json({ error: 'Producto no encontrado' });
+        }
+
+        if (producto.stock < cantidad) {
+            return res.status(400).json({ error: 'No hay suficiente stock para realizar la operación' });
+        }
+
+
+        producto.stock -= cantidad;
+        await producto.save();
+
+        res.json('Stock actualizado');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+
+
+
 // controladorProducto.guardarImagen =  (req,res) => {
 //     console.log("++++++++++++++++++++++++++++++++++++++++++++++ aki", req.files, req.body.fileName);
 //     fs.writeFileSync(path.resolve(`../../frontend/src/imagenes/${req.body.fileName}`), req.files);

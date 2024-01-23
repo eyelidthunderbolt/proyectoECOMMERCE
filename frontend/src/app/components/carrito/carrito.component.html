@@ -1,6 +1,6 @@
 <strong *ngIf="carrito.items[0]!=null">Tu Carrito</strong>
 <ul *ngIf="carrito.items[0]!=null" class="carrito">
-    
+
     <li *ngFor="let producto of carrito.items">
         {{producto.nombre}} Cant.{{producto.cantidad}}
 

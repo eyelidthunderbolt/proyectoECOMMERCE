@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../models/producto';
+import { Carrito,CarritoItem } from '../models/carrito';
+import { catchError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 
@@ -38,6 +40,16 @@ export class ProductosService {
   let ruta = path;
   this.imagenArchivo = archivo;
   }
+
+  actualizarStock(_id:string, cantidad:number){
+
+    return this.http.put(this.URL +`/${_id}/${cantidad}`, {})
+    .pipe(
+      catchError((error) => {
+        console.error('Error al actualizar el stock:', error);
+        throw error;
+      })
+  )}
 
   setImagePath(path: string) {
     this.imagePath = path;

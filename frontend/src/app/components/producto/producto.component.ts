@@ -34,7 +34,7 @@ export class ProductoComponent {
   }
   anhadirProducto(producto : Producto){
 
-    this.dataService.compartirProducto(producto.nombre, producto.precio);
+    this.dataService.compartirProducto(producto.nombre, producto.precio, producto._id);
 
 
 
