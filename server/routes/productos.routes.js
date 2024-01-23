@@ -26,12 +26,11 @@ router.post('/subir-imagen', upload.single('file'), function(req, res) {
 
   var tmp_path = req.file.path;
 
-  /** The original name of the uploaded file
-      stored in the variable "originalname". **/
+
   var target_path = path.join(__dirname, '..', '..', 'frontend', 'src', 'assets', filename);
   console.log(target_path);
 
-  /** A better way to copy the uploaded file. **/
+
   var src = fs.createReadStream(tmp_path);
   var dest = fs.createWriteStream(target_path);
   src.pipe(dest);
