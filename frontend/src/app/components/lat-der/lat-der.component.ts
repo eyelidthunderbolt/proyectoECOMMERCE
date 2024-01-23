@@ -35,9 +35,10 @@ export class LatDerComponent {
           for (let index = 0; index < carrito.items.length; index++) {
 
             this.productoService.actualizarStock(carrito.items[index].idProducto,carrito.items[index].cantidad)
-            .subscribe((res: any) => {
-              console.log(res);
-            });
+              .subscribe((res: any) => {
+                console.log(res);
+
+              });
 
           }
 

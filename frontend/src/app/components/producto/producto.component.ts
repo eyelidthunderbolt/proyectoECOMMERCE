@@ -33,6 +33,7 @@ export class ProductoComponent {
     this.producto.precio = this.producto.precio / 100;
   }
   anhadirProducto(producto : Producto){
+    console.log("+++++++tosta de gambas")
 
     this.dataService.compartirProducto(producto.nombre, producto.precio, producto._id);
 

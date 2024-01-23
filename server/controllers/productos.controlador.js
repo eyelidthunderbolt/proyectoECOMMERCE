@@ -62,10 +62,13 @@ controladorProducto.actualizarStock = async (req, res) => {
         if (producto.stock < cantidad) {
             return res.status(400).json({ error: 'No hay suficiente stock para realizar la operación' });
         }
+        else{
+            producto.stock -= cantidad;
+            await producto.save();
+        }
 
 
-        producto.stock -= cantidad;
-        await producto.save();
+
 
         res.json('Stock actualizado');
     } catch (error) {

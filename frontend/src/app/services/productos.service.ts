@@ -4,8 +4,9 @@ import { Producto } from '../models/producto';
 import { Carrito,CarritoItem } from '../models/carrito';
 import { catchError } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+declare var M: any;
 
+@Injectable({ providedIn: 'root' })
 export class ProductosService {
   productoSeleccionado: Producto;
   productos: Producto[]; // array para almacenar los productos que vamos obteniendo
@@ -47,6 +48,7 @@ export class ProductosService {
     .pipe(
       catchError((error) => {
         console.error('Error al actualizar el stock:', error);
+        M.toast({ html: "Error stock insuficiente" })
         throw error;
       })
   )}

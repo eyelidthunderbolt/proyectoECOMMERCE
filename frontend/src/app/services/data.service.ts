@@ -6,6 +6,8 @@ import { Producto } from '../models/producto';
   providedIn: 'root',
 })
 export class DataService {
+  private productoSource = new BehaviorSubject<any>(null);
+  productoSource$ = this.productoSource.asObservable();
 
   private productoNombreSource = new BehaviorSubject<string>('');
   productoNombre$ = this.productoNombreSource.asObservable();
@@ -24,9 +26,11 @@ export class DataService {
 
 
   compartirProducto(productoNombre: string, productoPrecio: number, productoID: string) {
-    this.productoNombreSource.next(productoNombre);
+    console.log("+++++++++ al ajillo")
+    this.productoSource.next({ productoNombre, productoPrecio, productoID });
+    // this.productoNombreSource.next(productoNombre);
     this.productoPrecioSource.next(productoPrecio);
-    this.productoIDSource.next(productoID)
+    // this.productoIDSource.next(productoID)
   }
 
   compartirUsuario(idUsuario: string) {
