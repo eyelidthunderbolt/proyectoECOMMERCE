@@ -12,6 +12,7 @@ declare var M: any;
 export class CarritoComponent implements OnInit {
   productoNombre$ = this.dataService.productoNombre$;
   productoPrecio$ = this.dataService.productoPrecio$;
+  productoID$ = this.dataService.productoID$
 
   public carrito: Carrito = new Carrito();
 
@@ -45,7 +46,13 @@ export class CarritoComponent implements OnInit {
             nuevoItem.precio = precioActual;
           });
 
+          this.productoID$.subscribe((id) => {
+            nuevoItem.idProducto = id
+          })
+
           nuevoItem.cantidad = 1;
+
+
           this.carrito.items.push(nuevoItem);
         }
       }

@@ -1,9 +1,10 @@
 export class CarritoItem {
+    idProducto: string = "";
     nombre: string = "";
     precio: number = 0;
     cantidad: number = 0;
   }
-  
+
   export class Carrito {
     idUsuario: string = "";
     items: Array<CarritoItem> = [];

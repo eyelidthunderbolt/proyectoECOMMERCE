@@ -13,6 +13,9 @@ export class DataService {
   private productoPrecioSource = new BehaviorSubject<number>(0);
   productoPrecio$ = this.productoPrecioSource.asObservable();
 
+  private productoIDSource = new BehaviorSubject<string>('');
+  productoID$ = this.productoIDSource.asObservable();
+
   private categoriaSource = new BehaviorSubject<string>('Todos los productos');
   categoria$ = this.categoriaSource.asObservable(); // la categoria que quiero pasar
 
@@ -20,9 +23,10 @@ export class DataService {
   usuarioIDSource$ = this.usuarioIDSource.asObservable();
 
 
-  compartirProducto(productoNombre: string, productoPrecio: number) {
+  compartirProducto(productoNombre: string, productoPrecio: number, productoID: string) {
     this.productoNombreSource.next(productoNombre);
     this.productoPrecioSource.next(productoPrecio);
+    this.productoIDSource.next(productoID)
   }
 
   compartirUsuario(idUsuario: string) {
