@@ -55,35 +55,6 @@ export class CarritoComponent implements OnInit {
       this.carrito.totalCompra += nuevoPrecio;
     });
 
-    // // Suscribirse al cambio de productoNombre$
-    // this.productoNombre$.subscribe((nuevoNombre) => {
-    //   if (nuevoNombre !== "") {
-    //     // Verificar si el producto ya existe en el carrito
-    //     const itemExistente = this.carrito.items.find((item) => item.nombre === nuevoNombre);
-    //     if (itemExistente) {
-    //       // Si existe, incrementar la cantidad
-    //       itemExistente.cantidad++;
-    //     } else {
-    //       // Si no existe, agregar un nuevo ítem al carrito
-    //       const nuevoItem = new CarritoItem();
-    //       nuevoItem.nombre = nuevoNombre;
-
-    //       // Suscribirse al cambio de productoPrecio$ para obtener el valor actual
-    //       this.productoPrecio$.subscribe((precioActual) => {
-    //         nuevoItem.precio = precioActual;
-    //       });
-
-    //       this.productoID$.subscribe((id) => {
-    //         nuevoItem.idProducto = id
-    //       })
-
-    //       nuevoItem.cantidad = 1;
-
-
-    //       this.carrito.items.push(nuevoItem);
-    //     }
-    //   }
-    // });
   }
 
   realizarCompra() {
