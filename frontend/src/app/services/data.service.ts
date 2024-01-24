@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../models/producto';
+import {Carrito} from '../models/carrito';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,17 @@ export class DataService {
 
   private usuarioIDSource = new BehaviorSubject<string>('');
   usuarioIDSource$ = this.usuarioIDSource.asObservable();
+
+  private usuarioSource = new BehaviorSubject<Usuario>(new Usuario);
+  usuarioSource$ = this.usuarioSource.asObservable();
+
+  private carritoSource = new BehaviorSubject<Carrito>(new Carrito);
+  carritoSource$ = this.carritoSource.asObservable();
+
+  compartirUsuario2(usuario : Usuario){
+
+    this.usuarioSource.next(usuario)
+  }
 
 
   compartirProducto(productoNombre: string, productoPrecio: number) {
@@ -37,6 +50,10 @@ export class DataService {
 
 
 
+  }
+
+  compartirCarrito(carrito : Carrito){
+    this.carritoSource.next(carrito)
   }
 
 

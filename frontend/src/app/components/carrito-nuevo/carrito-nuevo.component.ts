@@ -1,5 +1,6 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { Carrito } from 'src/app/models/carrito';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-carrito-nuevo',
@@ -8,12 +9,19 @@ import { Carrito } from 'src/app/models/carrito';
 })
 export class CarritoNuevoComponent {
 
-    @Input() carrito = new Carrito();
+    carrito$ : Carrito = new Carrito();
 
-  recibirCarrito(carrito : Carrito){
+    constructor(private dataService: DataService){}
+    
+    ngOnInit(){
 
-    this.carrito = carrito;
-  }
+      this.dataService.carritoSource$.subscribe((carrito : Carrito) =>{
+        this.carrito$ = carrito;
+      });
+    }  
+
+    
+  
 
 
 }

@@ -1,1 +1,4 @@
-<app-carrito (eventoCarrito)="recibirCarrito($event)"> </app-carrito>
+
+<div *ngFor="let item of carrito$.items">
+{{item.nombre}} Cant {{item.cantidad}} <br>
+</div>

@@ -23,6 +23,8 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
 import { ModificarProductosComponent } from './components/modificar-productos/modificar-productos.component';
 import { FormularioProductosComponent } from './components/formulario-productos/formulario-productos.component';
 import { CarritoNuevoComponent } from './components/carrito-nuevo/carrito-nuevo.component';
+import { CPadreComponent } from './components/cpadre/cpadre.component';
+import { CHijoComponent } from './components/chijo/chijo.component';
 
 
 // const appRoutes: Routes = [
@@ -82,7 +84,9 @@ import { CarritoNuevoComponent } from './components/carrito-nuevo/carrito-nuevo.
     AdminHeaderComponent,
     ModificarProductosComponent,
     FormularioProductosComponent,
-    CarritoNuevoComponent
+    CarritoNuevoComponent,
+    CPadreComponent,
+    CHijoComponent
   ],
   imports: [
     BrowserModule,

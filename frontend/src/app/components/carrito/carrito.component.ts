@@ -27,6 +27,8 @@ export class CarritoComponent implements OnInit {
       this.carrito.totalCompra += nuevoPrecio;
     });
 
+    
+
     // Suscribirse al cambio de productoNombre$
     this.productoNombre$.subscribe((nuevoNombre) => {
       if (nuevoNombre !== "") {
@@ -50,6 +52,8 @@ export class CarritoComponent implements OnInit {
         }
       }
     });
+
+    this.compartirCarrito(this.carrito);
   }
 
   realizarCompra() {
@@ -68,5 +72,11 @@ export class CarritoComponent implements OnInit {
 
   vaciar() {
     this.carrito = new Carrito();
+  }
+
+  compartirCarrito(carrito : Carrito) {
+
+    this.dataService.compartirCarrito(carrito);
+
   }
 }
