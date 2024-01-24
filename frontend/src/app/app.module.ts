@@ -22,6 +22,8 @@ import { AdminLayoutComponentComponent } from './components/admin-layout-compone
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { ModificarProductosComponent } from './components/modificar-productos/modificar-productos.component';
 import { FormularioProductosComponent } from './components/formulario-productos/formulario-productos.component';
+import { CnewHijoComponent } from './components/cnew-hijo/cnew-hijo.component';
+import { CnewPadreComponent } from './components/cnew-padre/cnew-padre.component';
 
 
 // const appRoutes: Routes = [
@@ -80,7 +82,9 @@ import { FormularioProductosComponent } from './components/formulario-productos/
     AdminLayoutComponentComponent,
     AdminHeaderComponent,
     ModificarProductosComponent,
-    FormularioProductosComponent
+    FormularioProductosComponent,
+    CnewHijoComponent,
+    CnewPadreComponent
   ],
   imports: [
     BrowserModule,
