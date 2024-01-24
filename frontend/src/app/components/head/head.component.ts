@@ -127,7 +127,6 @@ export class HeadComponent {
     this.nombreUsuario = nombreU;
     this.idUsuario = sessionStorage.getItem('token');
     this.comprobarAdmin(this.idUsuario)
-    this.compartirID(this.idUsuario); ;
 
 
 
