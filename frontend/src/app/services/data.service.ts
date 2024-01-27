@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../models/producto';
+import { CarritoItem } from '../models/carrito';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,9 @@ export class DataService {
   private usuarioIDSource = new BehaviorSubject<string>('');
   usuarioIDSource$ = this.usuarioIDSource.asObservable();
 
+  private itemsSource = new BehaviorSubject<CarritoItem[]>([])
+  itemsSource$ = this.itemsSource.asObservable();
+
 
   compartirProducto(productoNombre: string, productoPrecio: number, productoID: string) {
     console.log("+++++++++ al ajillo")
@@ -36,6 +40,12 @@ export class DataService {
   compartirUsuario(idUsuario: string) {
 
     this.usuarioIDSource.next(idUsuario)
+
+  }
+
+  compartirCarritoItems(carritoItems : CarritoItem[]){
+
+    this.itemsSource.next(carritoItems)
 
   }
 

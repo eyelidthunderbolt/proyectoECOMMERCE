@@ -48,7 +48,7 @@ export class ProductosService {
     .pipe(
       catchError((error) => {
         console.error('Error al actualizar el stock:', error);
-        M.toast({ html: "Error stock insuficiente" })
+       // M.toast({ html: "Error stock insuficiente" })
         throw error;
       })
   )}

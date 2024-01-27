@@ -32,7 +32,7 @@ export class LatDerComponent {
           console.log(res);
           M.toast({ html: "Compra Realizada" })
 
-          for (let index = 0; index < carrito.items.length; index++) {
+         /* for (let index = 0; index < carrito.items.length; index++) {
 
             this.productoService.actualizarStock(carrito.items[index].idProducto,carrito.items[index].cantidad)
               .subscribe((res: any) => {
@@ -40,7 +40,7 @@ export class LatDerComponent {
 
               });
 
-          }
+          }*/
 
         })
     }
