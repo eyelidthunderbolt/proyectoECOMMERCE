@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from '../../models/usuario';
 import { DataService } from '../../services/data.service';
+import { Carrito } from 'src/app/models/carrito';
+import { CarritosService } from 'src/app/services/carritos.service';
 
 declare var M: any;
 
@@ -22,10 +24,13 @@ export class HeadComponent {
   idUsuario: string | null = null;
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
+  pedidos : Carrito[] = [];
+  nCompras : number = 0;
 
 
 
-  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService) {
+
+  constructor(public usuariosService: UsuariosService, private router: Router, private dataService: DataService, private carritoService: CarritosService) {
 
     // this.usuario = new Usuario
     // this.usuarios = [];
@@ -72,6 +77,7 @@ export class HeadComponent {
 
 
         this.comprobarAdmin(this.idUsuario);
+        this.comprobarCompras();
 
 
 
@@ -120,6 +126,57 @@ export class HeadComponent {
     }
   }
 
+  logout(){
+    sessionStorage.clear()
+
+    this.idUsuario = null
+    this.adminLogeado = false
+    this.nombreUsuario = null
+    this.mensajeBienvenida = "";
+    this.router.navigate([''])
+
+  }
+
+  comprobarCompras(){
+
+    this.carritoService.mostrarCarritos()
+      .subscribe(res => {
+        const carritos = res as Carrito[];
+
+        const carritosFiltrados = carritos.filter((carrito: Carrito) => carrito.idUsuario === this.idUsuario);
+        const encontrado = carritosFiltrados.length > 0;
+
+        if(encontrado){
+
+          this.pedidos = carritosFiltrados;
+
+          for (let index = 0; index < this.pedidos.length; index++) {
+
+            this.nCompras++
+
+
+          }
+
+          if(this.nCompras >2){
+            M.toast({ html: "Usted no puede hacer mas compras" })
+            this.logout()
+
+          }
+
+
+
+
+
+
+
+        }
+
+
+
+      });
+
+  }
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -127,6 +184,7 @@ export class HeadComponent {
     this.nombreUsuario = nombreU;
     this.idUsuario = sessionStorage.getItem('token');
     this.comprobarAdmin(this.idUsuario)
+    this.comprobarCompras()
 
 
 
