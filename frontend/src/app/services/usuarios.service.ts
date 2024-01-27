@@ -21,4 +21,8 @@ export class UsuariosService {
   crearUsuario(usuario: Usuario) {
     return this.http.post(this.URL, usuario);
   }
+
+  borrarUsuario(idUsuario : string | null){
+    return this.http.delete(this.URL + `/${idUsuario}`);
+  }
 }

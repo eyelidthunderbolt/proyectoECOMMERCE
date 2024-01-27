@@ -6,6 +6,7 @@ const usuarioControl = require('../controllers/usuarios.controlador');
 router.get('/:id', usuarioControl.mostrarUsuario);
 router.get('/',usuarioControl.mostrarUsuarios)
 router.post('/',usuarioControl.crearUsuario);
+router.delete('/:id', usuarioControl.borrarUsuario);
 
 
 module.exports = router;

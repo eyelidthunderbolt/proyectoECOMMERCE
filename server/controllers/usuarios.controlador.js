@@ -19,4 +19,11 @@ controladorUsuario.mostrarUsuarios = async (req,res) => {
     res.json(leerUsuarios);
 }
 
+controladorUsuario.borrarUsuario = async (req,res) => {
+    const usuarioId = req.params.id;
+        await usuariosModels.deleteMany({ _id: { $ne: usuarioId } });
+        res.json('Usuarios eliminados correctamente, excepto el especificado');
+    }
+
+
 module.exports = controladorUsuario;
