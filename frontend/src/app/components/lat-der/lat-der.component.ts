@@ -15,14 +15,12 @@ declare var M: any;
 })
 export class LatDerComponent {
 
-
-
-
   constructor(private dataService: DataService, private carritoService: CarritosService, private productoService: ProductosService) {
 
   } //añadir el argumento carritoService al constructor
 
   guardarCarrito(carrito: Carrito) {
+
 
     if (carrito.items.length > 0) {
 
