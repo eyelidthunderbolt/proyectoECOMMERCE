@@ -89,3 +89,9 @@ h1 {
     margin-left: 15px;
 
   }
+
+  .navbar .botonLogout:hover{
+
+    background-color: #691818;
+
+  }
