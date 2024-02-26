@@ -8,7 +8,7 @@ export class CarritoItem {
 
   export class Carrito {
     _id: string | null = "";
-    idUsuario: string = "";
+    idUsuario: string | null = "";
     items: Array<CarritoItem> = [];
     fechaCompra: string = new Date().toLocaleDateString(); // local
     totalCompra: number = 0;

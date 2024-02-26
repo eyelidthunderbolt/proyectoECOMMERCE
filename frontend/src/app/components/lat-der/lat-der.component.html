@@ -1,2 +1,2 @@
 <div class="contenedor-principal"></div>
-<app-carrito  (eventoCarrito)="guardarCarrito($event)"></app-carrito>
+<app-carrito [idUsuarioPadre]="idUsuario" (eventoCarrito)="guardarCarrito($event)"></app-carrito>
