@@ -82,6 +82,19 @@ export class HeadComponent {
 
   }
 
+  logout(){
+    sessionStorage.clear();
+    this.mensajeBienvenida = "";
+    this.emailUsuario = "";
+    this.passwordUsuario = "";
+    this.idUsuario= null;
+    this.nombreUsuario= null;
+    this.adminLogeado= false;
+    M.toast({ html: "Cerrando sesión" })
+    this.router.navigate([''])
+
+  }
+
   navegarARegistro() {
 
     this.router.navigate(['/registro']);
