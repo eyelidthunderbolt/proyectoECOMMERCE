@@ -14,13 +14,12 @@ declare var M: any;
   styleUrls: ['./lat-der.component.css']
 })
 export class LatDerComponent {
+  public idUsuario : string | null = ""
 
 
 
 
-  constructor(private dataService: DataService, private carritoService: CarritosService, private productoService: ProductosService) {
-
-  } //añadir el argumento carritoService al constructor
+  constructor(private dataService: DataService, private carritoService: CarritosService, private productoService: ProductosService) {} //añadir el argumento carritoService al constructor
 
   guardarCarrito(carrito: Carrito) {
 
@@ -52,6 +51,12 @@ export class LatDerComponent {
     }
 
 
+  }
+
+  ngOnInit() {
+
+    let token: string | null = sessionStorage.getItem('token');
+          this.idUsuario = token;
   }
 
 
