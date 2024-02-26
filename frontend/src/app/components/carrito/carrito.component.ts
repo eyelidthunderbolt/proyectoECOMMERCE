@@ -40,6 +40,7 @@ export class CarritoComponent implements OnInit {
           // Si no existe, agregar un nuevo ítem al carrito
           const nuevoItem = new CarritoItem();
           nuevoItem.nombre = p.productoNombre;
+          nuevoItem.categoria = p.productoCategoria
           nuevoItem.precio = p.productoPrecio;
           nuevoItem.idProducto = p.productoID;
           nuevoItem.cantidad = 1;
@@ -61,6 +62,7 @@ export class CarritoComponent implements OnInit {
 
     if (token != null) {
       this.carrito.idUsuario = token.trim();
+      this.carrito._id = null;
       this.eventoCarrito.emit(this.carrito);
 
       // Limpiar el carrito después de realizar la compra

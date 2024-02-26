@@ -7,6 +7,7 @@ const carritosEsquema = new Schema({
     {
       idProducto: String,
       nombre: String,
+      categoria : String,
       precio: Number,
       cantidad: Number
     }

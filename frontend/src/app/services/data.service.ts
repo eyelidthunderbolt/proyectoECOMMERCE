@@ -25,7 +25,7 @@ export class DataService {
   usuarioIDSource$ = this.usuarioIDSource.asObservable();
 
 
-  compartirProducto(productoNombre: string, productoPrecio: number, productoID: string) {
+  compartirProducto(productoNombre: string, productoPrecio: number, productoID: string, productoCategoria : string) {
     console.log("+++++++++ al ajillo")
     this.productoSource.next({ productoNombre, productoPrecio, productoID });
     // this.productoNombreSource.next(productoNombre);
