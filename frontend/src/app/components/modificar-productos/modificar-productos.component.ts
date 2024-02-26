@@ -18,7 +18,13 @@ export class ModificarProductosComponent {
 
     this.productosService.mostrarProductos()
     .subscribe(res => {
-      this.productosService.productos = res as Producto[]; // mete en el array de empleados definido en Services la res que trae los empleados de la base de datos
+      this.productosService.productos = res as Producto[];
+      
+      for (let index = 0; index < this.productosService.productos.length; index++) {
+        
+        this.productosService.productos[index].precio = this.productosService.productos[index].precio / 100
+        
+      }// mete en el array de empleados definido en Services la res que trae los empleados de la base de datos
       console.log(res)
     })
   }
