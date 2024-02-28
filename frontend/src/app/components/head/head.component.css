@@ -66,5 +66,32 @@ h1 {
   .mensajeBienvenida{
     margin-left: 10px;
     color: black;
+    margin-right:650px;
     font-weight: bold;
+  }
+
+  .navbar .botonLogout{
+
+    
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #d82919;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 15px;
+
+  }
+
+  .navbar .botonLogout:hover{
+
+    background-color: #691818;
+
   }

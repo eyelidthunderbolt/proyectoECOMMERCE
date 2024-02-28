@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Carrito, CarritoItem } from '../../models/carrito';
 
@@ -10,6 +10,7 @@ declare var M: any;
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
+  @Input() idUsuarioPadre : string | null = ""
   productoNombre$ = this.dataService.productoNombre$;
   productoPrecio$ = this.dataService.productoPrecio$;
   productoID$ = this.dataService.productoID$
@@ -40,6 +41,7 @@ export class CarritoComponent implements OnInit {
           // Si no existe, agregar un nuevo ítem al carrito
           const nuevoItem = new CarritoItem();
           nuevoItem.nombre = p.productoNombre;
+          nuevoItem.categoria = p.productoCategoria
           nuevoItem.precio = p.productoPrecio;
           nuevoItem.idProducto = p.productoID;
           nuevoItem.cantidad = 1;
@@ -57,10 +59,11 @@ export class CarritoComponent implements OnInit {
   }
 
   realizarCompra() {
-    let token: string | null = sessionStorage.getItem('token');
+    
 
-    if (token != null) {
-      this.carrito.idUsuario = token.trim();
+    if (this.idUsuarioPadre != null || this.idUsuarioPadre != "") {
+      this.carrito.idUsuario = this.idUsuarioPadre
+      this.carrito._id = null;
       this.eventoCarrito.emit(this.carrito);
 
       // Limpiar el carrito después de realizar la compra
