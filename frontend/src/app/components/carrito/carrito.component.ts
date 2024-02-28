@@ -52,8 +52,9 @@ export class CarritoComponent implements OnInit {
     });
 
     // Suscribirse al cambio de productoPrecio$
-    this.productoPrecio$.subscribe((nuevoPrecio) => {
-      this.carrito.totalCompra += nuevoPrecio;
+    this.productoPrecio$.subscribe((nuevoPrecio: any) => {
+      console.log(this.carrito.totalCompra, parseInt(nuevoPrecio));
+      this.carrito.totalCompra += parseInt(nuevoPrecio);
     });
 
   }

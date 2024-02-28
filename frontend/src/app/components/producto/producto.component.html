@@ -3,7 +3,8 @@
     <p>{{ producto.nombre }}</p>
     <!-- <p>{{ producto.descripcion }}</p> -->
     <!-- <p>{{ producto.categoria }}</p> -->
-    <p class="precio">{{ producto.precio }} €</p>
+    <app-etiqueta-precio [precioCentimo]="producto.precio" />
+    <!-- <p class="precio">{{ producto.precio }} €</p> -->
     <!-- <p>{{ producto.cantidad }}</p> -->
     <!-- <p>{{ producto.stock }}</p> -->
     <button class="boton-ecommerce" (click)="anhadirProducto(producto)">Añadir a la cesta</button>

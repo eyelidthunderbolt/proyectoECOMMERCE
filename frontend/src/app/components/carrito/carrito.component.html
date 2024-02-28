@@ -5,6 +5,6 @@
         {{producto.nombre}} Cant.{{producto.cantidad}}
 
     </li>
-    <p *ngIf="this.carrito.totalCompra">TOTAL {{carrito.totalCompra}} €</p>
+    <p *ngIf="this.carrito.totalCompra">TOTAL <app-etiqueta-precio [precioCentimo]="carrito.totalCompra" /></p>
 </ul>
 <button *ngIf="carrito.items[0]!=null" id="boton-vaciar" class="btn btn-dangers" (click)="vaciar()" >Vaciar</button><button *ngIf="carrito.items[0]!=null" class="btn btn-danger" (click)="realizarCompra()">Comprar</button>
