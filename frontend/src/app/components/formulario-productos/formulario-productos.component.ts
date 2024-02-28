@@ -44,6 +44,7 @@ export class FormularioProductosComponent {
     }
 
     else if (form.value._id) {
+      form.value.foto = this.uploadImage(form.value.nombre, this.selectedFile)
       this.productosService.actualizarProducto(form.value)
         .subscribe(res => {
 

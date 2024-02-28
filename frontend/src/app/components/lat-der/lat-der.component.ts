@@ -26,11 +26,11 @@ export class LatDerComponent {
     try {
       await this.comprobarCarrito(carrito);
     } catch (e) {
-      console.log('eso e no weno', e);
+      console.log('mal', e);
       return;
     }
 
-    console.log('eso e weno')
+    console.log('bien')
 
 
 

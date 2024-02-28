@@ -33,7 +33,7 @@ export class ProductoComponent {
 
   }
   anhadirProducto(producto : Producto){
-    console.log("+++++++tosta de gambas")
+    console.log("+++++++")
 
     this.dataService.compartirProducto(producto.nombre, producto.precio, producto._id, producto.categoria);
 

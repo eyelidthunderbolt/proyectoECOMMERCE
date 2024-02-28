@@ -35,8 +35,8 @@ router.post('/subir-imagen', upload.single('file'), function(req, res) {
   var src = fs.createReadStream(tmp_path);
   var dest = fs.createWriteStream(target_path);
   src.pipe(dest);
-  src.on('end', function() { console.log('TO BIEN') });
-  src.on('error', function(err) { console.log('NO BIEN, SI MAL') });
+  src.on('end', function() { console.log('BIEN') });
+  src.on('error', function(err) { console.log('MAL') });
 
   res.send(200);
 });
