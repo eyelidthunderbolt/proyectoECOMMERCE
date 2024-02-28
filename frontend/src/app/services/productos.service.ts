@@ -54,8 +54,6 @@ export class ProductosService {
   )}
 
   comprobarStock(_id:string, cantidad:number){
-    debugger;
-    console.log("+++++", _id, cantidad);
 
     return this.http.get(this.URL +`/comprobar/${_id}/${cantidad}`)
     .pipe(

@@ -58,7 +58,7 @@ export class FormularioProductosComponent {
 
     else {
       form.value._id = null;
-      form.value.precio = form.value.precio * 100
+
       form.value.foto = this.uploadImage(form.value.nombre, this.selectedFile)
       this.productosService.crearProducto(form.value)
         .subscribe(res => {

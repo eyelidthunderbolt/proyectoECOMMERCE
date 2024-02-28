@@ -14,7 +14,7 @@
                 <td>{{producto.nombre}}</td>
                 <td>{{producto.descripcion}}</td>
                 <td>{{producto.categoria}}</td>
-                <td>{{producto.precio}}</td>
+                <td><app-etiqueta-precio [precioCentimo]="producto.precio" /></td>
                 <td>{{producto.stock}}</td>
                 <td>
                     <a (click)="editarProducto(producto)">
