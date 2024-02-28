@@ -113,7 +113,7 @@ export class HeadComponent {
 
 
 
-    if (this.idUsuario != null) {
+    if (this.idUsuario !== "") {
 
 
       this.compartirID(this.idUsuario)

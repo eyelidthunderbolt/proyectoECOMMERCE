@@ -21,7 +21,19 @@ export class LatDerComponent {
 
   constructor(private dataService: DataService, private carritoService: CarritosService, private productoService: ProductosService) {} //añadir el argumento carritoService al constructor
 
-  guardarCarrito(carrito: Carrito) {
+  async guardarCarrito(carrito: Carrito) {
+
+    try {
+      await this.comprobarCarrito(carrito);
+    } catch (e) {
+      console.log('eso e no weno', e);
+      return;
+    }
+
+    console.log('eso e weno')
+
+
+
 
 
     if (carrito.items.length > 0) {
@@ -30,17 +42,22 @@ export class LatDerComponent {
         .subscribe((res: any) => {
 
           console.log(res);
-          M.toast({ html: "Compra Realizada" })
+
 
           for (let index = 0; index < carrito.items.length; index++) {
 
             this.productoService.actualizarStock(carrito.items[index].idProducto,carrito.items[index].cantidad)
               .subscribe((res: any) => {
-                console.log(res);
+                if (res.status !== 200) {
+                  M.toast({ html: res.message });
+                  return;
+                }
+
 
               });
 
           }
+          M.toast({ html: "Compra Realizada" })
 
         })
     }
@@ -52,6 +69,17 @@ export class LatDerComponent {
     }
 
 
+  }
+
+  async comprobarCarrito(carrito: Carrito){
+    const promesas = [];
+    for (let index = 0; index < carrito.items.length; index++) {
+
+      const comprobacion: any = await this.productoService.comprobarStock(carrito.items[index].idProducto, carrito.items[index].cantidad).toPromise()
+
+      promesas.push(comprobacion);
+    }
+    return Promise.all(promesas);
   }
 
   ngOnInit() {

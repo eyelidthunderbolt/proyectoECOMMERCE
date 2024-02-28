@@ -48,6 +48,33 @@ controladorProducto.borrarProducto = async (req,res) => {
     res.json('Producto Eliminado')
 }
 
+controladorProducto.comprobarStock = async (req, res) => {
+    const { id, cantidad } = req.params;
+    console.log("+++++", id, cantidad, req.params);
+
+
+    try {
+        const producto = await productosModels.findById(id);
+
+        if (!producto) {
+            return res.status(404).json({ status: 404, message: 'Producto no encontrado' });
+        }
+
+        if (producto.stock < cantidad) {
+            return res.status(400).json({ status: 400, message: 'No hay suficiente stock para realizar la operación' });
+        }
+        else{
+
+            res.json({ status: 200, message: 'Stock suficiente' });
+        }
+
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: 500, message: 'Error interno del servidor' });
+    }
+};
+
 controladorProducto.actualizarStock = async (req, res) => {
     const { id, cantidad } = req.params;
 
@@ -57,24 +84,21 @@ controladorProducto.actualizarStock = async (req, res) => {
         const producto = await productosModels.findById(id);
 
         if (!producto) {
-            return res.status(404).json({ error: 'Producto no encontrado' });
+            return res.status(404).json({ status: 404, message: 'Producto no encontrado' });
         }
 
         if (producto.stock < cantidad) {
-            return res.status(400).json({ error: 'No hay suficiente stock para realizar la operación' });
+            return res.status(400).json({ status: 400, message: 'No hay suficiente stock para realizar la operación' });
         }
         else{
             producto.stock -= cantidad;
             await producto.save();
         }
 
-
-
-
-        res.json('Stock actualizado');
+        res.json({ status: 200, message: 'Stock actualizado' });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({ status: 500, message: 'Error interno del servidor' });
     }
 };
 
