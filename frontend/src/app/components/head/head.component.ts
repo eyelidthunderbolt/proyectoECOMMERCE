@@ -87,7 +87,7 @@ export class HeadComponent {
     this.mensajeBienvenida = "";
     this.emailUsuario = "";
     this.passwordUsuario = "";
-    this.idUsuario= null;
+    this.idUsuario= "";
     this.nombreUsuario= null;
     this.adminLogeado= false;
     M.toast({ html: "Cerrando sesión" })
