@@ -14,7 +14,7 @@ declare var M: any;
   styleUrls: ['./lat-der.component.css']
 })
 export class LatDerComponent {
-  public idUsuario : string | null = ""
+  public idUsuario : string = ""
 
 
 
@@ -56,8 +56,10 @@ export class LatDerComponent {
 
   ngOnInit() {
 
+    this.idUsuario = sessionStorage.getItem('token') || "";
+    console.log(this.idUsuario)
     this.dataService.usuarioIDSource$.subscribe((data) => {
-      debugger
+
       this.idUsuario = data;
       console.log(this.idUsuario);
 

@@ -22,6 +22,7 @@ export class HeadComponent {
   idUsuario: string = "";
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
+  token : string = "";
 
 
 
@@ -59,9 +60,10 @@ export class HeadComponent {
           this.nombreUsuario = usuariosFiltrados[0].nombre;
           this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
-          let token: string  = sessionStorage.getItem('token') || ""; //el OR string vacia es para decirle que si sessionStorage.getItem es falsy ponga la string vacia
-          this.idUsuario = token;
+          this.token= sessionStorage.getItem('token') || ""; //el OR string vacia es para decirle que si sessionStorage.getItem es falsy ponga la string vacia
+          this.idUsuario = this.token;
           this.compartirID(this.idUsuario)
+
 
 
 
@@ -141,7 +143,9 @@ export class HeadComponent {
     let nombreU: string = sessionStorage.getItem('nombreUsuario') || "";
     this.nombreUsuario = nombreU;
     this.idUsuario = sessionStorage.getItem('token') || "";
+    this.compartirID(this.idUsuario)
     this.comprobarAdmin(this.idUsuario)
+    console.log(this.token)
 
 
 

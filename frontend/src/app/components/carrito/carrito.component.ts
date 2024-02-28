@@ -10,7 +10,7 @@ declare var M: any;
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  @Input() idUsuarioPadre: string | null = ""
+  @Input() idUsuarioPadre: string = ""
   productoNombre$ = this.dataService.productoNombre$;
   productoPrecio$ = this.dataService.productoPrecio$;
   productoID$ = this.dataService.productoID$
@@ -60,9 +60,9 @@ export class CarritoComponent implements OnInit {
 
   realizarCompra() {
 
-    console.log(this.idUsuarioPadre)
-    debugger
-    if (this.idUsuarioPadre === null || this.idUsuarioPadre === "") {
+
+
+    if (this.idUsuarioPadre === "") {
       M.toast({ html: "Usuario no logeado. Ingrese antes de realizar compra" });
       return;
     }

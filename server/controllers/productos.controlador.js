@@ -30,7 +30,8 @@ controladorProducto.editarProducto = async (req,res) => {
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
         categoria: req.body.categoria,
-        precio: req.body.precio
+        precio: req.body.precio,
+        stock: req.body.stock
 
 
     };
