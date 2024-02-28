@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Carrito, CarritoItem } from '../../models/carrito';
 
@@ -10,7 +10,7 @@ declare var M: any;
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  @Input() idUsuarioPadre : string | null = ""
+  @Input() idUsuarioPadre: string = ""
   productoNombre$ = this.dataService.productoNombre$;
   productoPrecio$ = this.dataService.productoPrecio$;
   productoID$ = this.dataService.productoID$
@@ -21,7 +21,7 @@ export class CarritoComponent implements OnInit {
   @Output() eventoCarrito = new EventEmitter<Carrito>();
 
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
 
@@ -59,18 +59,20 @@ export class CarritoComponent implements OnInit {
   }
 
   realizarCompra() {
-    
 
-    if (this.idUsuarioPadre != null || this.idUsuarioPadre != "") {
-      this.carrito.idUsuario = this.idUsuarioPadre
-      this.carrito._id = null;
-      this.eventoCarrito.emit(this.carrito);
 
-      // Limpiar el carrito después de realizar la compra
-      this.carrito = new Carrito();
-    } else {
+
+    if (this.idUsuarioPadre === "") {
       M.toast({ html: "Usuario no logeado. Ingrese antes de realizar compra" });
+      return;
     }
+    this.carrito.idUsuario = this.idUsuarioPadre
+    this.carrito._id = null;
+    this.eventoCarrito.emit(this.carrito);
+
+    // Limpiar el carrito después de realizar la compra
+    this.carrito = new Carrito();
+
   }
 
   vaciar() {

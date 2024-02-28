@@ -19,9 +19,10 @@ export class HeadComponent {
   mensajeBienvenida: string = "";
   emailUsuario: string = "";
   passwordUsuario: string = "";
-  idUsuario: string | null = null;
+  idUsuario: string = "";
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
+  token : string = "";
 
 
 
@@ -59,8 +60,10 @@ export class HeadComponent {
           this.nombreUsuario = usuariosFiltrados[0].nombre;
           this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
-          let token: string | null = sessionStorage.getItem('token');
-          this.idUsuario = token;
+          this.token= sessionStorage.getItem('token') || ""; //el OR string vacia es para decirle que si sessionStorage.getItem es falsy ponga la string vacia
+          this.idUsuario = this.token;
+          this.compartirID(this.idUsuario)
+
 
 
 
@@ -84,10 +87,11 @@ export class HeadComponent {
 
   logout(){
     sessionStorage.clear();
+    this.compartirID("")
     this.mensajeBienvenida = "";
     this.emailUsuario = "";
     this.passwordUsuario = "";
-    this.idUsuario= null;
+    this.idUsuario= "";
     this.nombreUsuario= null;
     this.adminLogeado= false;
     M.toast({ html: "Cerrando sesión" })
@@ -109,7 +113,7 @@ export class HeadComponent {
 
 
 
-    if (this.idUsuario != null) {
+    if (this.idUsuario !== "") {
 
 
       this.compartirID(this.idUsuario)
@@ -136,15 +140,17 @@ export class HeadComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    let nombreU: string | null = sessionStorage.getItem('nombreUsuario');
+    let nombreU: string = sessionStorage.getItem('nombreUsuario') || "";
     this.nombreUsuario = nombreU;
-    this.idUsuario = sessionStorage.getItem('token');
+    this.idUsuario = sessionStorage.getItem('token') || "";
+    this.compartirID(this.idUsuario)
     this.comprobarAdmin(this.idUsuario)
+    console.log(this.token)
 
 
 
 
-    if (this.nombreUsuario != null) {
+    if (this.nombreUsuario != "") {
 
       this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 

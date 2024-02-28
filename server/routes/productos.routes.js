@@ -10,6 +10,7 @@ router.get('/:id', prodControl.mostrarProducto);
 router.put('/:id', prodControl.editarProducto);
 router.delete('/:id', prodControl.borrarProducto);
 router.put('/:id/:cantidad', prodControl.actualizarStock);
+router.get('/comprobar/:id/:cantidad', prodControl.comprobarStock);
 // router.post('/subir-imagen', prodControl.guardarImagen);
 
 const multer  = require('multer');
