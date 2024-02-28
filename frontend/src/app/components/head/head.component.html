@@ -23,11 +23,11 @@
     <li>
       <input type="password" placeholder="Contraseña" #password [(ngModel)]="passwordUsuario">
     </li>
-    <li *ngIf="idUsuario ==null" ><button (click)="login(usuario.value,password.value)">Login</button></li>
-    
+    <li *ngIf="idUsuario ===''" ><button (click)="login(usuario.value,password.value)">Login</button></li>
+
 
     <li class="mensajeBienvenida">{{mensajeBienvenida}}</li>
-    <li *ngIf="idUsuario != null"><button class="botonLogout" (click)="logout()">Logout</button></li>
+    <li *ngIf="idUsuario !== ''"><button class="botonLogout" (click)="logout()">Logout</button></li>
   </ul>
 </nav>
 

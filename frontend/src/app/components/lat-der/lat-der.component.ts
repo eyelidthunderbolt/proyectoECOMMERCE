@@ -56,8 +56,12 @@ export class LatDerComponent {
 
   ngOnInit() {
 
-    let token: string | null = sessionStorage.getItem('token');
-          this.idUsuario = token;
+    this.dataService.usuarioIDSource$.subscribe((data) => {
+      debugger
+      this.idUsuario = data;
+      console.log(this.idUsuario);
+
+    });
   }
 
 

@@ -19,7 +19,7 @@ export class HeadComponent {
   mensajeBienvenida: string = "";
   emailUsuario: string = "";
   passwordUsuario: string = "";
-  idUsuario: string | null = null;
+  idUsuario: string = "";
   nombreUsuario: string | null = null;
   adminLogeado: boolean = false;
 
@@ -59,8 +59,9 @@ export class HeadComponent {
           this.nombreUsuario = usuariosFiltrados[0].nombre;
           this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
-          let token: string | null = sessionStorage.getItem('token');
+          let token: string  = sessionStorage.getItem('token') || ""; //el OR string vacia es para decirle que si sessionStorage.getItem es falsy ponga la string vacia
           this.idUsuario = token;
+          this.compartirID(this.idUsuario)
 
 
 
@@ -84,6 +85,7 @@ export class HeadComponent {
 
   logout(){
     sessionStorage.clear();
+    this.compartirID("")
     this.mensajeBienvenida = "";
     this.emailUsuario = "";
     this.passwordUsuario = "";
@@ -136,15 +138,15 @@ export class HeadComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    let nombreU: string | null = sessionStorage.getItem('nombreUsuario');
+    let nombreU: string = sessionStorage.getItem('nombreUsuario') || "";
     this.nombreUsuario = nombreU;
-    this.idUsuario = sessionStorage.getItem('token');
+    this.idUsuario = sessionStorage.getItem('token') || "";
     this.comprobarAdmin(this.idUsuario)
 
 
 
 
-    if (this.nombreUsuario != null) {
+    if (this.nombreUsuario != "") {
 
       this.mensajeBienvenida = "Bienvenido " + this.nombreUsuario;
 
